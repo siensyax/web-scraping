@@ -1,0 +1,1572 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Pythonでクローリングにより画像収集する方法【初心者向け】 | TechAcademyマガジン</title>
+    <!-- Tag Description -->
+<!-- /Tag Description -->
+    <!-- Open Graph Meta -->
+<meta property="og:site_name" content="TechAcademyマガジン" />
+<meta property="fb:app_id" content="118067648358293" />
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@techacademy" />
+<meta name="twitter:creator" content="@techacademy" />
+  <meta property="og:title" content="Pythonでクローリングにより画像収集する方法【初心者向け】" />
+  <meta property="og:description" content="初心者向けにPythonでクローリングにより画像収集する方法について解説しています。クローリングとはWeb上から情報を収集することを言います。スクレイピングフレームワークScrapyを使用した画像収集の方法について学びましょう。" />
+  <meta property="og:url" content="https://techacademy.jp/magazine/19182" />
+  <meta property="og:image" content="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/59307009_m-800x533.jpg" />
+  <meta name="twitter:title" content="Pythonでクローリングにより画像収集する方法【初心者向け】" />
+  <meta name="twitter:description" content="初心者向けにPythonでクローリングにより画像収集する方法について解説しています。クローリングとはWeb上から情報を収集することを言います。スクレイピングフレームワークScrapyを使用した画像収集の方法について学びましょう。" />
+  <meta name="twitter:image" content="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/59307009_m-800x533.jpg" />
+<!-- /Open Graph Meta -->
+    <!-- Facebook -->
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=118067648358293";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Twitter -->
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<!-- Google Plus -->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+    {lang: 'ja',
+    annotation: 'none'}
+</script>
+<!-- Hatena -->
+<script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>    <link rel="shortcut icon" href="https://techacademy-magazine-cdn.techacademy.jp/magazine/images/favicon.ico">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" media="screen">
+    <link rel="stylesheet" href="https://techacademy.jp/magazine/wp-content/themes/ta-magazine/style.css?1572428344" media="all">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://techacademy-magazine.s3-ap-northeast-1.amazonaws.com/magazine/wp-content/themes/ta-magazine/js/lib/wow.min.js"></script>
+    <script src="https://techacademy.jp/magazine/wp-content/themes/ta-magazine/js/scripts.js?1572428344"></script>
+    
+<!-- All in One SEO Pack 2.7.2 by Michael Torbert of Semper Fi Web Design[231,287] -->
+<link rel="author" href="https://plus.google.com/102497984944811698625/?rel=author" />
+<meta name="description"  content="初心者向けにPythonでクローリングにより画像収集する方法について解説しています。クローリングとはWeb上から情報を収集することを言います。スクレイピングフレームワークScrapyを使用した画像収集の方法について学びましょう。" />
+
+<meta name="keywords"  content="ハウツー" />
+
+<link rel="canonical" href="https://techacademy.jp/magazine/19182" />
+<!-- /all in one seo pack -->
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//js.hs-scripts.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/techacademy.jp\/magazine\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.12"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b!==c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='contact-form-7-css'  href='https://techacademy.jp/magazine/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wordpress-popular-posts-css-css'  href='https://techacademy.jp/magazine/wp-content/plugins/wordpress-popular-posts/public/css/wpp.css?ver=4.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='https://techacademy.jp/magazine/wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://techacademy.jp/magazine/wp-includes/css/dashicons.min.css?ver=4.8.12' type='text/css' media='all' />
+<link rel='stylesheet' id='amazonjs-css'  href='https://techacademy.jp/magazine/wp-content/plugins/amazonjs/css/amazonjs.css?ver=0.8' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack_css-css'  href='https://techacademy.jp/magazine/wp-content/plugins/jetpack/css/jetpack.css?ver=6.4.2' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpp_params = {"sampling_active":"1","sampling_rate":"100","ajax_url":"https:\/\/techacademy.jp\/magazine\/wp-admin\/admin-ajax.php","action":"update_views_ajax","ID":"19182","token":"0bb6186590"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://techacademy.jp/magazine/wp-content/plugins/wordpress-popular-posts/public/js/tracking.js?ver=4.0.0'></script>
+<script type='text/javascript' src='https://techacademy.jp/magazine/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://techacademy.jp/magazine/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://techacademy.jp/magazine/wp-json/' />
+<link rel='prev' title='PythonでのPhantomJSによるWebスクレイピングの方法【初心者向け】' href='https://techacademy.jp/magazine/21493' />
+<link rel='next' title='BytesIO（およびStringIO、cStringIO）の使い方【初心者向け】' href='https://techacademy.jp/magazine/19185' />
+<link rel="alternate" type="application/json+oembed" href="https://techacademy.jp/magazine/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftechacademy.jp%2Fmagazine%2F19182" />
+<link rel="alternate" type="text/xml+oembed" href="https://techacademy.jp/magazine/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ftechacademy.jp%2Fmagazine%2F19182&#038;format=xml" />
+<style type='text/css'>img#wpstats{display:none}</style></head>
+<body id="top" class="post-template-default single single-post postid-19182 single-format-standard">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-57STXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-57STXX');</script>
+<!-- /Google Tag Manager -->
+
+
+<header>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="navbar-header">
+        <h1 class="ta-magazine navbar-brand">
+          <a href="https://techacademy.jp/magazine">TechAcademyマガジン</a>
+        </h1>
+        <!--<p class="navbar-text">教育 × テクノロジーのWebメディア</p>-->
+      </div>
+      <!--Nav links-->
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a id="category-news" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ニュース</a>
+            <ul class="dropdown-menu" aria-labelledby="category-news">
+              <li><a href="https://techacademy.jp/magazine/category/report">最新記事</a></li>
+<li><a href="https://techacademy.jp/magazine/category/edtech">EdTech（エドテック）</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a id="category-interview" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">インタビュー</a>
+            <ul class="dropdown-menu" aria-labelledby="category-interview">
+              <li><a href="https://techacademy.jp/magazine/category/interview">インタビュー</a></li>
+<li><a href="https://techacademy.jp/magazine/category/eventreport">イベントレポート</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a id="category-tech" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">テクノロジー</a>
+            <ul class="dropdown-menu" aria-labelledby="category-tech">
+              <li><a href="https://techacademy.jp/magazine/category/programming">プログラミング</a></li>
+<li><a href="https://techacademy.jp/magazine/category/smartphone">スマートフォンアプリ開発</a></li>
+<li><a href="https://techacademy.jp/magazine/category/webdesign">Webデザイン</a></li>
+<li><a href="https://techacademy.jp/magazine/category/web-marketing">Webマーケティング</a></li>
+<li><a href="https://techacademy.jp/magazine/category/webdirection">Webディレクション</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a id="category-career" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">キャリア</a>
+            <ul class="dropdown-menu" aria-labelledby="category-career">
+              <li><a href="https://techacademy.jp/magazine/category/career">キャリア・転職</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a id="category-contact" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">お問い合わせ</a>
+            <ul class="dropdown-menu" aria-labelledby="category-contact">
+              <li><a href="https://techacademy.jp/magazine/ads">広告掲載について</a></li>
+<li><a href="https://techacademy.jp/magazine/contact">お問い合わせ</a></li>            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Drawer -->
+<span id="humberger">
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+</span>
+<div id="drawer-nav">
+  <ul>
+    <li>
+    <h3><i class="fa fa-chevron-down fa-l"></i>ニュース</h3>
+      <ul>
+        <li><a href="https://techacademy.jp/magazine/category/report">最新記事</a></li>
+<li><a href="https://techacademy.jp/magazine/category/edtech">EdTech（エドテック）</a></li>
+      </ul>
+    </li>
+    <li>
+      <h3><i class="fa fa-chevron-down fa-l"></i>インタビュー</h3>
+      <ul>
+        <li><a href="https://techacademy.jp/magazine/category/interview">インタビュー</a></li>
+<li><a href="https://techacademy.jp/magazine/category/eventreport">イベントレポート</a></li>
+      </ul>
+    </li>
+    <li>
+      <h3><i class="fa fa-chevron-down fa-l"></i>テクノロジー</h3>
+      <ul>
+        <li><a href="https://techacademy.jp/magazine/category/programming">プログラミング</a></li>
+<li><a href="https://techacademy.jp/magazine/category/smartphone">スマートフォンアプリ開発</a></li>
+<li><a href="https://techacademy.jp/magazine/category/webdesign">Webデザイン</a></li>
+<li><a href="https://techacademy.jp/magazine/category/web-marketing">Webマーケティング</a></li>
+<li><a href="https://techacademy.jp/magazine/category/webdirection">Webディレクション</a></li>
+      </ul>
+    </li>
+    <li>
+      <h3><i class="fa fa-chevron-down fa-l"></i>キャリア</h3>
+      <ul>
+        <li><a href="https://techacademy.jp/magazine/category/career">キャリア・転職</a></li>
+      </ul>
+    </li>
+    <li>
+      <h3><i class="fa fa-chevron-down fa-l"></i>お問い合わせ</h3>
+      <ul>
+        <li><a href="https://techacademy.jp/magazine/ads">広告掲載について</a></li>
+<li><a href="https://techacademy.jp/magazine/contact">お問い合わせ</a></li>      </ul>
+    </li>
+  </ul>
+</div>
+<!-- Drawer -->
+
+<!--breadcrumbs-->
+
+  <div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+      <span typeof="v:Breadcrumb">
+        <a rel="v:url" property="v:title" title="TechAcademy（テックアカデミー）" href="https://techacademy.jp/" class="breadcrumb-home"><i class="fa fa-home"></i><strong>TechAcademy（テックアカデミー）</strong></a>
+      </span>
+            <!-- Breadcrumb NavXT 6.1.0 -->
+<span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" title="Go to the プログラミング category archives." href="https://techacademy.jp/magazine/category/programming" class="taxonomy category">プログラミング</a></span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" title="Go to the Python category archives." href="https://techacademy.jp/magazine/category/programming/python" class="taxonomy category">Python</a></span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" title="Go to Pythonでクローリングにより画像収集する方法【初心者向け】." href="https://techacademy.jp/magazine/19182" class="post post-post current-item">Pythonでクローリングにより画像収集する方法【初心者向け】</a></span>    </div>
+  </div>
+<!--/breadcrumbs-->
+
+<!--campaign bar-->
+<!--/campaign bar-->
+
+
+<!-- container-fluid -->
+<div class="container-fluid" id="contents">
+
+<div class="ad-mobile-top">
+
+  
+    <!-- TechAcademy_MobileTop_320x100 -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:100px"
+         data-ad-client="ca-pub-2002061910642335"
+         data-ad-slot="9267870307"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+  
+</div>
+
+<div class="container-inner inner-md">
+  <div class="row">
+
+    <div class="content col-md-9 col-sm-9 animated fadeInUp">
+              <div class="post-category">
+          <a href="https://techacademy.jp/magazine/category/programming/python">Python</a>
+        </div>
+        <article class="post" id="post-19182">
+
+          <div class="post-header">
+
+  <h1><a href="https://techacademy.jp/magazine/19182" rel="bookmark" title="Permanent Link to Pythonでクローリングにより画像収集する方法【初心者向け】">Pythonでクローリングにより画像収集する方法【初心者向け】</a></h1>
+
+  <p class="post-description">初心者向けにPythonでクローリングにより画像収集する方法について解説しています。クローリングとはWeb上から情報を収集することを言います。スクレイピングフレームワークScrapyを使用した画像収集の方法について学びましょう。</p>
+
+  <div class="social-button">
+    <span class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-text="Pythonでクローリングにより画像収集する方法【初心者向け】 | TechAcademyマガジン" data-url="https://techacademy.jp/magazine/19182" data-count="horizontal" data-via="techacademy" data-lang="en">Tweet</a></span>
+    <span class="facebook-like"><div class="fb-like" data-href="https://techacademy.jp/magazine/19182" data-send="false" data-layout="button" data-width="120" data-show-faces="true"></div></span>
+    <span class="facebook-share"><div class="fb-share-button" data-href="https://techacademy.jp/magazine/19182" data-layout="button_count" data-size="small" data-mobile-iframe="true"></div></span>
+    <span class="hatena mobile-hide"><a href="http://b.hatena.ne.jp/entry/https://techacademy.jp/magazine/19182" class="hatena-bookmark-button" data-hatena-bookmark-title="Pythonでクローリングにより画像収集する方法【初心者向け】" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a></span>
+    <span class="pocket tablet-hide"><a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a></span>
+    <span class="date tablet-hide"><a href="https://techacademy.jp/magazine/date/2018/02" title="2018年2月の記事アーカイブ"><i class="fa fa-calendar fa-l"></i>2018/2/10</a></span>
+  </div>
+
+  <div class="eyecatch" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/59307009_m-800x533.jpg')"></div>
+
+  <p class="service-description">
+    TechAcademyマガジンは<a href="https://techacademy.jp/?utm_source=tamagazine&utm_medium=referral&utm_campaign=single-top" target="_blank">オンラインのプログラミングスクールTechAcademy [テックアカデミー]</a>が運営する教育×テクノロジーのWebメディアです。初心者でもすぐ勉強できる記事が2,000以上あります。
+  </p>
+
+</div>
+
+          <div class="post-body">
+              <p>Pythonでクローリングにより画像収集する方法について解説します。</p>
+<p>Pythonについてそもそもよく分からないという方は、<a href="https://techacademy.jp/magazine/15507" target="_blank" rel="noopener">Pythonとは</a>何なのか解説した記事をまずご覧ください。</p>
+<p>&nbsp;</p>
+<p>なお本記事は、TechAcademyの<a href="https://techacademy.jp/python-special?utm_source=tamagazine&amp;utm_medium=referral&amp;utm_content=19182&amp;utm_campaign=post" target="_blank" rel="noopener">Pythonオンライン講座</a>の内容をもとにしています。</p>
+<p>&nbsp;</p>
+<div class="voice">
+<figure class="voice-img-left"><img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/02/20163020-2-400x400-e1517449291396.png" alt="" /><figcaption class="voice-img-description">田島悠介</figcaption></figure>
+<div class="voice-text-right">
+<p class="voice-text">今回は、Pythonに関する内容だね！</p>
+</div>
+</div>
+<div class="voice">
+<figure class="voice-img-right"><img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/02/20160620-400x400-e1517449269611.png" alt="" /><figcaption class="voice-img-description">大石ゆかり</figcaption></figure>
+<div class="voice-text-left">
+<p class="voice-text">どういう内容でしょうか？</p>
+</div>
+</div>
+<div class="voice">
+<figure class="voice-img-left"><img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/02/20163020-2-400x400-e1517449291396.png" alt="" /><figcaption class="voice-img-description">田島悠介</figcaption></figure>
+<div class="voice-text-right">
+<p class="voice-text">クローリングにより画像収集する方法について詳しく説明していくね！</p>
+</div>
+</div>
+<div class="voice">
+<figure class="voice-img-right"><img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/02/20160620-400x400-e1517449269611.png" alt="" /><figcaption class="voice-img-description">大石ゆかり</figcaption></figure>
+<div class="voice-text-left">
+<p class="voice-text">お願いします！</p>
+</div>
+</div>
+<p>&nbsp;</p>
+<h2>クローリングとは</h2>
+<p>クローリングとは、プログラムを使ってインターネット上の情報を収集・保存することです。クローラーというプログラム（ロボットとよく表現します）を使い、ページ間のリンクや検索情報などを基に、効率よく情報を収集します。</p>
+<p>特定の条件に該当するテキストや画像をプログラムを使って自動的に収集できるため、Googleなどの検索エンジンをはじめとして多くの場面で利用されています。</p>
+<p>クローリングを行うためには、情報を収集するサイト側に負荷をかけないよう注意する必要があります。特定のサイトに大量アクセスした結果、サイトをダウンさせてしまうと罪に問われかねません。クローリングする間隔をあけるなど、十分注意するようにしましょう。</p>
+<p>&nbsp;</p>
+<h2>Pythonでクローリングにより画像収集する方法</h2>
+<p>Python でクローリングにより画像収集を行うには様々な方法がありますが、この記事ではスクレイピングフレームワークである Scrapy を使用した方法を紹介します。</p>
+<p>まずは、Scrapy をインストールしましょう。パソコンが Macならターミナル、Windowsならコマンドプロンプト（以下、ターミナルと略します）から以下のコマンドでインストールします。なお、事前に Python のインストールが必要です。</p>
+<pre>pip install scrapy</pre>
+<p>Scrapy はとても高機能なスクレイピングフレームワークです。Webサイトのスクレイピングだけでなく、Beautiful Soup といった他のライブラリにデータを渡してページの内容を解析したり、多くのことが可能です。詳細は公式サイトを参考にしてください。</p>
+<p><a href="https://scrapy.org/" target="_blank" rel="noopener nofollow">https://scrapy.org/</a></p>
+<p>また、Beautiful Soup については以下の記事も参考にしてください。</p>
+<p><a href="https://techacademy.jp/magazine/18875">Pythonでスクレイピングを行う方法</a></p>
+<p>&nbsp;</p>
+<p><a href="https://techacademy.jp/briefing-lp-python-s?utm_source=tamagazine&utm_medium=referral&utm_campaign=sidebar-bottom-l&utm_content=single-middle" target='_blank'>[PR] Pythonで挫折しない学習方法を動画で公開中</a></p><h2>実際に書いてみよう</h2>
+<p>最初に scrapy のプロジェクトを作成します。ターミナルから以下のように入力してください。</p>
+<pre><span class="go">scrapy startproject mycrawler
+cd crawler</span></pre>
+<p>次に mycrawler/settings.py ファイルの30行目のコメントを外します。これは、クローリング先のサーバーの負荷を減らすためです。</p>
+<div>
+<pre>DOWNLOAD_DELAY = 3</pre>
+</div>
+<p>同じくmycrawler/settings.py ファイルに以下を追記します。imagesが画像ファイルの保存先になります。ITEM_PIPELINESを指定することで、以下で記述する myspider.py で収集した画像ファイルのURLが ImagesPipeline という Scrapy の機能に渡され、画像が保存されます。</p>
+<pre>ITEM_PIPELINES = {'scrapy.contrib.pipeline.images.ImagesPipeline': 1}
+IMAGES_STORE = './images'
+</pre>
+<p>mycrawler/items.py ファイルを以下のように修正します。image_urlsに画像ファイル名が格納されます。</p>
+<pre>import scrapy
+from scrapy.item import Item, Field
+
+class MycrawlerItem(scrapy.Item):
+    image_urls = Field()
+</pre>
+<p>mycrawler/spiders フォルダに myspider.py を作成し、以下のように記述します。今回はヤフーニュースから画像を取得しています。</p>
+<pre>import scrapy
+from scrapy.spiders import CrawlSpider, Rule
+from mycrawler.items import MycrawlerItem
+
+class MyspiderSpider(scrapy.Spider):
+    name = 'myspider'
+    allowed_domains = ['news.yahoo.co.jp']
+    start_urls = ['https://news.yahoo.co.jp/']
+
+    def parse(self, response):
+        item = MycrawlerItem()
+        item["image_urls"] = []
+        for image_url in response.xpath("//img/@src").extract():
+            if "http" not in image_url:
+                item["image_urls"].append(response.url.rsplit("/", 1)[0] + "/" + image_url)
+            else:
+                item["image_urls"].append(image_url)
+
+        return item
+</pre>
+<p>実行してみましょう。</p>
+<pre>scrapy crawl myspider</pre>
+<p>実行して少し待つと、imagesフォルダに画像が格納されます。</p>
+<p><img class="alignnone size-large wp-image-19184" src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/5f7459c02cdc9fbf9699363d7faeeabd-800x283.png" alt="" srcset="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/5f7459c02cdc9fbf9699363d7faeeabd-800x283.png 800w, https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/5f7459c02cdc9fbf9699363d7faeeabd-400x141.png 400w, https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/5f7459c02cdc9fbf9699363d7faeeabd-768x272.png 768w, https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/5f7459c02cdc9fbf9699363d7faeeabd.png 1352w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<p>画像が収集できることを確認したら、情報を収集するサイトに負荷をかけないよう、プログラムを終了させましょう。</p>
+<p>&nbsp;</p>
+<table>
+<tbody>
+<tr>
+<td><strong>この記事を監修してくれた方</strong></p>
+<p>太田和樹（おおたかずき）<br />
+ITベンチャー企業のPM兼エンジニア</p>
+<p>普段は主に、Web系アプリケーション開発のプロジェクトマネージャーとプログラミング講師を行っている。守備範囲はフロントエンド、モバイル、サーバサイド、データサイエンティストと幅広い。その幅広い知見を生かして、複数の領域を組み合わせた新しい提案をするのが得意。</p>
+<p>開発実績：画像認識技術を活用した駐車場混雑状況把握（実証実験）、音声認識を活用したヘルプデスク支援システム、Pepperを遠隔操作するアプリの開発、大規模基幹系システムの開発・導入マネジメント</p>
+<p>地方在住。仕事のほとんどをリモートオフィスで行う。通勤で消耗する代わりに趣味のDIYや家庭菜園、家族との時間を楽しんでいる。</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<div class="voice">
+<figure class="voice-img-right"><img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/02/20160620-400x400-e1517449269611.png" alt="" /><figcaption class="voice-img-description">大石ゆかり</figcaption></figure>
+<div class="voice-text-left">
+<p class="voice-text">内容分かりやすくて良かったです！</p>
+</div>
+</div>
+<div class="voice">
+<figure class="voice-img-left"><img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/02/20163020-2-400x400-e1517449291396.png" alt="" /><figcaption class="voice-img-description">田島悠介</figcaption></figure>
+<div class="voice-text-right">
+<p class="voice-text">ゆかりちゃんも分からないことがあったら質問してね！</p>
+</div>
+</div>
+<div class="voice">
+<figure class="voice-img-right"><img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/02/20160620-400x400-e1517449269611.png" alt="" /><figcaption class="voice-img-description">大石ゆかり</figcaption></figure>
+<div class="voice-text-left">
+<p class="voice-text">分かりました。ありがとうございます！</p>
+</div>
+</div>
+<p>オンラインのプログラミングスクールTechAcademyではPythonを使って機械学習の基礎を学ぶ<a href="https://techacademy.jp/python-special?utm_source=tamagazine&amp;utm_medium=referral&amp;utm_content=19182&amp;utm_campaign=post" target="_blank" rel="noopener">Pythonオンライン講座</a>を開催しています。</p>
+<p>初心者向けの書籍を使って人工知能（AI）や機械学習について学ぶことができます。</p>
+<p>現役エンジニアがパーソナルメンターとして受講生に1人ずつつき、マンツーマンのメンタリングで学習をサポートし、最短4週間で習得することが可能です。</p>
+<p>また、現役エンジニアから学べる<a href="https://techacademy.jp/briefing-lp-meetup-s?utm_source=tamagazine&amp;utm_medium=referral&amp;utm_content=19182&amp;utm_campaign=post" target="_blank" rel="noopener">無料のプログラミング体験会</a>も実施しているので、ぜひ参加してみてください。</p>
+          </div>
+
+        </article>
+        <div class="post-footer">
+
+  <!-- 広告 -->
+  
+<!-- 広告 -->
+<div class="ad row wow fadeInUp">
+  <div class="banner-left col-md-6 col-sm-6">
+    <a href="https://techacademy.jp/briefing-lp-python-s?utm_source=tamagazine&utm_medium=referral&utm_campaign=sidebar-bottom-l" >
+      <img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2017/12/online-bootcamp_300-250.jpg" alt="" />
+    </a>
+  </div>
+  <div class="banner-right col-md-6 col-sm-6">
+
+    
+      <!-- TechAcademy_SingleBottomRight_300x250 -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:300px;height:250px"
+           data-ad-client="ca-pub-2002061910642335"
+           data-ad-slot="6227005503"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+
+    
+  </div>
+</div>
+
+<!-- 検索 -->
+<div class="section-md search-box wow fadeInUp">
+  <div class="search-form">
+    <h3 class="section-title title-danger">
+      <i class="fa fa-search fa-l"></i>記事を検索
+    </h3>
+    <form role="search" method="get" id="searchform" action="https://techacademy.jp/magazine/" >
+      <input type="text" value="" name="s" class="search-input" placeholder="キーワード" />
+      <input type="submit" class="btn btn-danger search-btn" value="検索" />
+    </form>
+  </div>
+</div>
+  <!-- ソーシャルボタン -->
+  <div class="section-md social-button-original wow fadeInUp">
+    <a class="btn btn-link btn-submit btn-facebook" href="http://www.facebook.com/sharer.php?u=https://techacademy.jp/magazine/19182&amp;t=Pythonでクローリングにより画像収集する方法【初心者向け】" onClick="window.open(encodeURI(decodeURI(this.href)), 'sharewindow', 'width=550, height=450, personalbar=0, toolbar=0, scrollbars=1, resizable=!'); return false;"><i class="fa fa-facebook fa-l"></i>Facebookでシェア</a>
+
+    <a class="btn btn-link btn-submit btn-twitter" href="http://twitter.com/intent/tweet?text=Pythonでクローリングにより画像収集する方法【初心者向け】&amp;url=https://techacademy.jp/magazine/19182&amp;via=techacademy"><i class="fa fa-twitter fa-l"></i>Twitterでシェア</a>
+
+    <a class="btn btn-link btn-submit btn-hatena" href="http://b.hatena.ne.jp/entry/https://techacademy.jp/magazine/19182" target="_blank"><i class="fa fa-bookmark fa-l"></i>はてブに追加</a>
+  </div>
+
+  <!-- フォローボックス -->
+  <div class="section-md follow-box row wow fadeInUp">
+    <div class="eyecatch col-md-5 col-sm-5" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/59307009_m-800x533.jpg')">
+    </div>
+    <div class="col-md-7 col-sm-7">
+      <div class="follow-wrap">
+        <div class="follow">
+          <img src="https://techacademy.jp/magazine/wp-content/themes/ta-magazine/images/logo-magazine.png" alt="TechAcademyマガジン">
+          <h4>
+            この記事を気に入って頂けたら<br>
+            いいね！・フォローをお願いします
+          </h4>
+          <div class="social-fan">
+            <span class="facebook-page"><div class="fb-like" data-href="https://www.facebook.com/techacademy" data-send="false" data-layout="button_count" data-width="120" data-show-faces="true"></div></span>
+            <span class="twitter-like"><a href="https://twitter.com/techacademy" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- キーワード -->
+      <div class="section-md keywords wow fadeInUp">
+      <h3 class="section-title title-warning">
+        <i class="fa fa-tags fa-l"></i>関連するキーワード
+      </h3>
+      <a href="https://techacademy.jp/magazine/keyword/%e3%83%8f%e3%82%a6%e3%83%84%e3%83%bc" rel="tag">ハウツー</a>    </div>
+  
+  <!-- 関連記事 -->
+      <div class="section-md related-posts wow fadeInUp">
+      <h3 class="section-title title-success">
+        <i class="fa fa-copy fa-l"></i>関連する記事
+      </h3>
+      <div class="entry-list t1" id="post-19310" class="post-19310 post type-post status-publish format-standard has-post-thumbnail hentry category-python tag-1698">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/19310">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/09/102390407_m-800x518.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/19310" rel="bookmark">PythonのABCモジュールで抽象クラスを作る方法【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        PythonのABCモジュールで抽象クラスを作る方法について解説します。
+
+Pythonについてそもそもよく分からないという方は、Pythonとは何なのか解...      </div>
+    </div>
+    <span class="entry-category">
+      Python    </span>
+  </div>
+</div><div class="entry-list t1" id="post-22720" class="post-22720 post type-post status-publish format-standard has-post-thumbnail hentry category-python tag-howto">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/22720">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2017/07/81285732_l-800x534.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/22720" rel="bookmark">PythonのSyntaxErrorの解決方法を現役エンジニアが解説【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        PythonのSyntaxErrorの解決方法について解説します。
+
+Pythonについてそもそもよく分からないという方は、Pythonとは何なのか解説した...      </div>
+    </div>
+    <span class="entry-category">
+      Python    </span>
+  </div>
+</div><div class="entry-list t1" id="post-21491" class="post-21491 post type-post status-publish format-standard has-post-thumbnail hentry category-python tag-howto">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/21491">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/05/11125811/79147284_s-800x522.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/21491" rel="bookmark">PythonのライブラリNetworkxの使い方【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        PythonのライブラリNetworkxの使い方について解説します。
+
+Pythonについてそもそもよく分からないという方は、Pythonとは何なのか解説し...      </div>
+    </div>
+    <span class="entry-category">
+      Python    </span>
+  </div>
+</div><div class="entry-list t1" id="post-19057" class="post-19057 post type-post status-publish format-standard has-post-thumbnail hentry category-python tag-1698">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/19057">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/08/51997866_m-800x533.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/19057" rel="bookmark">Pythonのスライスの使い方【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        Pythonのスライスの使い方について解説します。
+
+Pythonについてそもそもよく分からないという方は、Pythonとは何なのか解説した記事をまずご覧く...      </div>
+    </div>
+    <span class="entry-category">
+      Python    </span>
+  </div>
+</div><div class="entry-list t1" id="post-18811" class="post-18811 post type-post status-publish format-standard has-post-thumbnail hentry category-python tag-1698">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/18811">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/07/96086768_m-800x422.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/18811" rel="bookmark">Pythonで日付をunixtimeに変換する方法【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        Pythonで日付をunixtimeに変換する方法について解説します。
+
+Pythonについてそもそもよく分からないという方は、Pythonとは何なのか解説...      </div>
+    </div>
+    <span class="entry-category">
+      Python    </span>
+  </div>
+</div><div class="entry-list t1" id="post-20602" class="post-20602 post type-post status-publish format-standard has-post-thumbnail hentry category-python tag-howto">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/20602">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/03/83371689_s-800x534.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/20602" rel="bookmark">NumPyの関数reshapeの使い方を現役エンジニアが解説【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        NumPyの関数reshapeの使い方について解説します。
+
+Pythonについてそもそもよく分からないという方は、Pythonとは何なのか解説した記事をま...      </div>
+    </div>
+    <span class="entry-category">
+      Python    </span>
+  </div>
+</div>    </div>
+  
+  <!-- 近似記事 -->
+      <div class="similar-posts wow fadeInUp">
+      <h3 class="section-title title-info">
+        <i class="fa fa-eye fa-l"></i>あわせてよく読まれている記事
+      </h3>
+      <div class="similar-posts cf"><div class="entry-list t1">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/23139">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2018/04/44655482_m-800x502.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/23139" rel="bookmark">PythonのScrapy入門を現役エンジニアが解説【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        Pythonで画像ファイルをPDF化する方法について解説します。
+Pythonについてそもそもよく分からないという方は、Pythonとは何なのか解説した記事をまずご覧ください。
+&nbsp;
+なお本記事は、TechAcademyのPythonオンライン講座の内容をもとにしています。
+&nbsp;
+
+田島悠介
+
+今回は、Pythonに関する内容だね！
+
+
+
+大石ゆかり
+
+どういう内容でしょうか？
+
+
+
+田島悠介
+
+PythonのScrapy入門について詳しく説明していくね！
+
+
+
+大石ゆかり
+
+お願いします！
+
+
+&nbsp;
+クローリング（クロール）とは
+ITでクロール(crawl)、クローリング(crawling)とは、インターネット上の複数のWebサイトを巡回し、情報を収集することです。元の英単語としては「はい回る、巡回する」といった意味です。
+クローラとは
+クローラ(crawler)とは、上記のクロールを実装したソフトウェアのことです。手動または自動でクローラを実行し、Webサイトの情報を収集活用します。
+例えば検索エンジンはクローラを定期的に実行しており、キーワードや相互リンクなどを分析した後にデータベースに保存し、検索に備えています。
+[PR] Pythonで挫折しない学習方法を動画で公開中WebクロールフレームワークのScrapyとは
+ScrapyはPython製のクロールフレームワークです。オープンソースのソフトウェアで、簡易、高速でありながら、拡張性の高いことを特徴としています。
+HTMLの解析には、BeautifulSoupやlxmlといった外部ライブラリを用いることもできます。
+Scrapyの特徴、使い方
+インストール
+以下のようにpipコマンドでインストールします。
+pip install scrapy
+
+Pythonインタプリタで以下のように実行します。特にエラーがなければ、インストールには成功しています。
+import scrapy
+
+&nbsp;
+サンプルコード
+以下内容のmyspider.pyファイルを作成しました。
+import scrapy
+
+class BlogSpider(scrapy.Spider):
+    name = 'blogspider'
+    start_urls = ['https://blog.scrapinghub.com']
+
+    def parse(self, response):
+        for title in response.css('.post-header&gt;h2'):
+            yield {'title': title.css('a ::text').get()}
+
+    
+      </div>
+    </div>
+    <span class="entry-category">
+      Python
+    </span>
+  </div>
+</div>
+
+<div class="entry-list t1">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/20930">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/04/44944519_s-800x533.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/20930" rel="bookmark">PythonによるWebスクレイピングの方法を現役エンジニアが解説【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        PythonによるWebスクレイピングの方法ついて解説します。
+Pythonについてそもそもよく分からないという方は、Pythonとは何なのか解説した記事をまずご覧ください。
+&nbsp;
+なお本記事は、TechAcademyのPythonオンライン講座の内容をもとにしています。
+&nbsp;
+
+田島悠介
+
+今回は、PythonでWebスクレイピングする方法についての内容だね！
+
+
+
+大石ゆかり
+
+Webスクレイピングとは何でしょうか？
+
+
+
+田島悠介
+
+Webスクレイピングでできること、その方法を解説していくね！
+
+
+
+大石ゆかり
+
+お願いします！
+
+
+&nbsp;
+Webスクレイピングとは
+Webスクレイピングとは、Webページの情報をプログラムを使って取得できる技術です。他のプログラミング言語でもWebスクレイピングはできますが、今回はPythonを使ってWebスクレイピングする方法を紹介します。
+&nbsp;
+Webスクレイピングで何ができる？
+では具体的にWebスクレイピングでは何ができるのでしょうか？
+たとえば、以下のようなことができます。
+
+あるサイトの特定部分のテキストを定期的に取得
+ネットオークションの価格を自動で取得
+自動でサイトにログインして、ほしい情報を取得
+
+Webスクレイピングは、業務の自動化などで活躍します。
+[PR] Pythonで挫折しない学習方法を動画で公開中Webスクレイピングのためのライブラリ・フレームワーク
+PythonでWebスクレイピングをするための代表絵的なライブラリやフレームワークをいくつか紹介します。
+urllib.request
+Pythonの標準ライブラリです。URLを指定し、Webサイトの情報を取得できます。
+Requests
+urllib.requestに同じく、Webサイトの情報を取得できます。Requestsは人間のためのHTTPとしても親しまれていて、扱いやすいのが特徴です。
+beautifulsoup4
+beautifulsoup4は、サードパーティ製のhtmlパーサライブラリです。取得したWebサイトから特定のテキスト情報などを抜き出せます。
+Webスクレイピングといえばbeautifulsoup4、と覚えてもよいほど有名です。
+Selenium
+自動でブラウザを操作する為のライブラリです。スクレイピングにも活用することできます。
+HTMLの要素にアクセスして情報を取得できるのはもちろん、クリック操作などの制御も可能です。
+Scrapy
+Pythonにおけるスクレイピングのためフレームワークといえば、Scrapyです。
+Scrapyは、スクレイピング（Webサイトからデータを取得する）だけではなく、クローリング（プログラムがインターネット上のリンクを辿ってWebサイトを巡回し、Webページ上の情報を複製・保存すること）もできます。少し難易度が高くなりますが、余裕のある方は使ってみてください。
+&nbsp;
+実際に書いてみよう
+いくつかライブラリ・フレームワークを紹介しましたが、今回は「beautifulsoup4」を使い、実際にWebスクレイピングをします。
+NewsPicksのトップページに表示されている記事のタイトルを自動で取得し、出力するプログラムを書いていきます。
+サンプルコード(mymod.py)
+
+import requests
+from bs4 import BeautifulSoup
+
+result = requests.get('https://newspicks.com/') 
+data_1 = BeautifulSoup(r.text, 'html.parser')
+data_2 = data.find_all("div", class_="title _ellipsis")
+
+for item in data_2:
+ print(item.getText())
+
+&nbsp;
+実行結果
+ボーイング、737減産へ　2割、墜落事故の影響拡大
+アップル米有料音楽で逆転　スポティファイ上回る
+【必見】シェアエコのいまを押さえる3つのポイント
+米大統領、金融緩和を要求　FRBに圧力強める
+【独自調べ】「令和」改元は、経済にどんな影響を与えるか？
+【猪瀬直樹】作家の道標は、三島由紀夫とカポーティ
+ボーイング、737減産へ　2割、墜落事故の影響拡大
+アップル米有料音楽で逆転　スポティファイ上回る
+【必見】シェアエコのいまを押さえる3つのポイント
+米大統領、金融緩和を要求　FRBに圧力強める
+東大生が教える｢文章が苦手｣が一瞬で治るコツ
+Amazon印のワイヤレスイヤホンが開発中？ AirPodsのライバル候補か
+｢四角いクルマ｣は､なぜ日本で大人気なのか
+解説
+
+requests.get()でNewsPicksトップページのHTMLを取得
+find_allでclassを指定し、タイトルを取得
+配列に格納された値をfor文とprint文で出力
+
+&nbsp;
+
+大石ゆかり
+
+普段みているようなサイトでも簡単にスクレイピングできるんですね！
+
+
+
+田島悠介
+
+余裕ができたらログインなども試してみてね！
+
+
+
+大石ゆかり
+
+分かりました！ありがとうございます！
+
+
+オンラインのプログラミングスクールTechAcademyではPythonを使って機械学習の基礎を学ぶPythonオンライン講座を開催しています。
+初心者向けの書籍を使って人工知能（AI）や機械学習について学ぶことができます。
+現役エンジニアがパーソナルメンターとして受講生に1人ずつつき、マンツーマンのメンタリングで学習をサポートし、最短4週間で習得することが可能です。
+また、現役エンジニアから学べる無料のプログラミング体験会も実施しているので、ぜひ参加してみてください。
+
+      </div>
+    </div>
+    <span class="entry-category">
+      Python
+    </span>
+  </div>
+</div>
+
+<div class="entry-list t1">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/20624">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/03/39254798_s-800x532.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/20624" rel="bookmark">Pythonを業務効率化に活用する方法を現役エンジニアが解説【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        Pythonを業務効率化に活用する方法について解説します。
+Pythonについてそもそもよく分からないという方は、Pythonとは何なのか解説した記事をまずご覧ください。
+&nbsp;
+なお本記事は、TechAcademyのPythonオンライン講座の内容をもとにしています。
+&nbsp;
+
+田島悠介
+
+今回は、Pythonに関する内容だね！
+
+
+
+大石ゆかり
+
+どういう内容でしょうか？
+
+
+
+田島悠介
+
+業務効率化に活用する方法について詳しく説明していくね！
+
+
+
+大石ゆかり
+
+お願いします！
+
+
+&nbsp;
+Pythonを業務効率化に活用する方法
+Pythonでは数多くの標準モジュール、サードパーティ製モジュールがあります。組み合わせや使い方次第で、コンピュータ上で行うたいていの作業を自動化できます。以下はその一例です。
+
+Webサイトにアクセスし、内容を取得する(さらに、データを加工したり、複数サイトのデータを組み合わせたりできる)
+Excelシートを読み書きする
+PDFやWordファイルを読み書きする
+CSVファイルを読み込み、データベースに反映する
+指定時刻や一定の頻度で、別のプログラムを実行する(タスクのスケジューリング)
+メールを作成し、添付ファイルを付けて送信する
+画像を編集する
+キーボードやマウスを操作し、GUIアプリケーションを操作する
+
+&nbsp;
+おすすめの入門書
+退屈なことはPythonにやらせよう
+手作業だと時間がかかったり、ミスを犯しがちです。この書籍ではそういった作業を代行するPythonスクリプトの作成方法を述べています。
+題名の通り、非プログラマーにもわかりやすい構成と記述になっています。
+練習問題も付属しているので、スキルアップや、同様の課題に直面した時の参考事例にできます。
+Pythonクローリング&amp;スクレイピング
+Webページを巡回して情報収集したり、収集した情報を別ファイルに転記したりするケースはよくあると思います。
+そういったケースで役立つのが、クローリング(収集)やスクレイピング(抽出)の手法です。
+この書籍はクローリング、スクレイピングの初歩はもちろん、応用としてそれらを活用した機械学習にも触れています。
+Pythonクックブック
+特定のタスクに対応するためのノウハウやテクニックを収めた書籍です。標準、サードパーティ製含め、様々な便利モジュールも紹介されています。
+直接、業務効率化を扱った書籍ではありませんが、事例や考え方のヒントとして、大いに参考になります。
+&nbsp;
+[PR] Pythonで挫折しない学習方法を動画で公開中おすすめのフレームワーク、ライブラリ、APIなど
+Scrapy
+スクレイピングのモジュールです。
+スクレイピングに必要十分な機能を備え、ログ取得、メール送信、非同期実行といった便利な付加機能も充実しています。
+Selenium
+SeleniumはWebブラウザの操作を自動化するドライバです。
+様々なプログラミング言語がSelenium用のバインディングを提供していて、Pythonにもあります。
+Webブラウザのフォームに自動で値を入力し、画面遷移をさせていくような処理を実現できます。
+openpyxl
+PythonでExcelファイルを読み書きするためのモジュールです。
+Excelファイルを開く、シートを追加削除する、セルを読み書きする、といった処理をPythonで記述できます。
+Google API
+Googleの各種サービスに関するPythonのAPIです。
+例えばカレンダーの予定を読み書きしたり、メールを送受信したりできます。
+SNSのAPI
+開発者向けにAPIを提供しているSNSが多数あります。一例をあげます。
+・Twitter
+・Facebook
+・Instagram
+実際に書いてみよう（サンプルコードなど）
+サンプルコード
+YahooニュースのITカテゴリのRSSを取得し、タイトルとURLを出力するプログラムです。
+import feedparser
+feed = feedparser.parse('https://news.yahoo.co.jp/pickup/computer/rss.xml')
+for entry in feed['entries']:
+  title = entry['title']
+  link = entry['link']
+  print(title, ',', link)
+
+&nbsp;
+実行結果
+地震 各社が災害伝言サービス , https://news.yahoo.co.jp/pickup/6314748
+交通にゃん全運動 動画が話題 , https://news.yahoo.co.jp/pickup/6314796
+オンラインサロン 構造の是非 , https://news.yahoo.co.jp/pickup/6314713
+おじさん流入 TikTokは歓迎? , https://news.yahoo.co.jp/pickup/6314700
+ディズニー YouTube広告休止 , https://news.yahoo.co.jp/pickup/6314688
+折りたたみ Galaxyの新しさ , https://news.yahoo.co.jp/pickup/6314670
+認証と認可 ガオガイガー解説 , https://news.yahoo.co.jp/pickup/6314637
+世界に拡大 恋活アプリの戦略 , https://news.yahoo.co.jp/pickup/6314662
+
+&nbsp;
+解説
+
+feedparserモジュールをインポートしました
+RSSにアクセスし、解析しました
+feed[&#8216;entries&#8217;]が記事のリストになっているので、ループ処理で順番にアクセスしました
+
+監修してくれたメンター
+
+
+
+橋本紘希
+システムインテグレータ企業勤務のシステムエンジニア。
+開発実績: Javaプログラムを用いた業務用Webアプリケーションや、基幹システム用バッチアプリケーションなどの設計構築試験。
+
+
+
+&nbsp;
+
+大石ゆかり
+
+内容分かりやすくて良かったです！
+
+
+
+田島悠介
+
+ゆかりちゃんも分からないことがあったら質問してね！
+
+
+
+大石ゆかり
+
+分かりました。ありがとうございます！
+
+
+オンラインのプログラミングスクールTechAcademyではPythonを使って機械学習の基礎を学ぶPythonオンライン講座を開催しています。
+初心者向けの書籍を使って人工知能（AI）や機械学習について学ぶことができます。
+現役エンジニアがパーソナルメンターとして受講生に1人ずつつき、マンツーマンのメンタリングで学習をサポートし、最短4週間で習得することが可能です。
+また、現役エンジニアから学べる無料のプログラミング体験会も実施しているので、ぜひ参加してみてください。
+
+      </div>
+    </div>
+    <span class="entry-category">
+      Python
+    </span>
+  </div>
+</div>
+
+<div class="entry-list t1">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/9918">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2016/09/46978602_l-800x533-800x533.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/9918" rel="bookmark">【ワンクリックで移動可能に！】Excel(エクセル)のハイパーリンク機能の使い方</a>
+      </h3>
+      <div class="entry-excerpt">
+        セル内のテキストや図に「ハイパーリンク」を設定すると、クリックすることで、
+
+Webページを表示する
+別のファイルを開く
+ファイル内の別の箇所に移動する
+
+などが可能になります。
+今回は、Excel(エクセル)のハイパーリンク機能の使い方について紹介します。
+&nbsp;
+なお本記事は、KiRAMEXのオンライン完結のExcel(エクセル)講座の内容をもとに紹介しています。
+&nbsp;
+目次
+
+Web ページへハイパーリンクを設定する
+別のファイルへハイパーリンクを設定する
+ブック内の別のセルへハイパーリンクを設定する
+
+&nbsp;
+Webページへハイパーリンクを設定する
+まず、ハイパーリンクを設定したいセルを選択します。
+例えば、Yahoo!のトップページのURLを貼り付けるとしましょう。
+URLを貼り付けてみると、セル内の字が下線付きで青くなり、ハイパーリンクが設定されました。
+セルの上にポインタを合わせると、ポインタが指の形になります。
+そしてクリックすると、Yahoo!のトップページが表示されます。
+
+他にも、ハイパーリンクを設定する方法があります。
+セルを選択した状態で、[挿入]タブから[ハイパーリンク]をクリックしてください。
+
+
+そうすると、[ハイパーリンクの挿入]ダイアログボックスが表示されます。
+[アドレス]の入力ボックスにURLを貼り付けて[OK]を押すと、ハイパーリンクが設定できます。
+
+また、ハイパーリンクの表示文字列を変える方法も紹介します。
+例えば、ハイパーリンクの表示文字列を、URLから「Yahoo!トップページへ」へと変えてみましょう。
+先ほど表示された[ハイパーリンクの挿入]ダイアログボックス内の[表示文字列]の入力ボックスに、「Yahoo!トップページへ」と入力し、[OK]を押してください。
+
+そうすると、セル内の文字列が「Yahoo!トップページへ」となり、リンク先がわかりやすくなりました。
+
+&nbsp;
+[PR] Pythonで挫折しない学習方法を動画で公開中別のファイルへハイパーリンクを設定する
+ハイパーリンクは、Webページだけではなく、別のファイルへのリンクも設定することができます。
+例えば、Word ファイルへのハイパーリンクを設定してみましょう。
+まず、上記で出てきた[ハイパーリンクの挿入]ダイアログボックスを開き、[ファイル、Webページ]を選択します。
+検索先を指定し、リンクしたい Word ファイルを選択すると、アドレスが自動で表示されます。
+表示文字列は、ファイル名に合わせて「歓迎会のお知らせ」と入力しました。
+最後に、[OK]をクリックしましょう。
+
+そうすると、セル内の文字列が下線付きで青くなり、クリックすると、Wordファイル「歓迎会のお知らせ」が開くようになりました。
+
+&nbsp;
+ブック内の別のセルへハイパーリンクを設定する
+次は、ブック内の別のセルへ移動するハイパーリンクの設定方法です。
+例えば、 Sheet2 以降のシートに各得意先の名簿がある状態で、Sheet1 に目次を作るとします。
+目次から各得意先の名簿に移動するように、ハイパーリンクを設定してみましょう。
+まず、セル B3 を選択し、上記で出てきた[ハイパーリンクの挿入]ダイアログボックスを開きます。
+そして、[このドキュメント内]をクリックし、[Sheet2]をクリックします。
+デフォルトで、[セル参照を入力してください]ボックスには、セル A1、[表示文字列]の入力ボックスには、ハイパーリンクを設定するセルの文字列が入ります。
+[セル参照を入力してください]ボックスに「A1」と入力されていると、選択したシートのセル A1 へ移動されます。
+必要に応じて変更しましょう。
+最後に、[OK]をクリックしてください。
+
+そうすると、セル B3 の「（株）あいうえお」が青字になり、クリックすると、Sheet2の名簿へ移動できます。
+
+また、同じように、各得意先名簿のシートから、「目次へ戻る」リンクを設定するとします。
+例えば、下の画像では、Sheet2 のセル D1 に、目次の Sheet1 のセル A1 へ移動するハイパーリンクを設定し、目次に戻るようにしました。
+
+&nbsp;
+以上、Excel のハイパーリンク機能の使い方について紹介しました。
+ハイパーリンクを活用すれば、Webページなどにワンクリックでスイスイ移動できます。
+ぜひ活用してみてください。
+[お知らせ]KiRAMEXでは初心者でも最短4週間でExcelが使えるようになるオンライン完結のExcel(エクセル)講座を開催しています。Excelを仕事に活かしたい方はぜひご覧ください。
+
+      </div>
+    </div>
+    <span class="entry-category">
+      Excel
+    </span>
+  </div>
+</div>
+
+<div class="entry-list t1">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/10026">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2016/10/54054866_l-800x533.jpg')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/10026" rel="bookmark">gemを使った開発！Ruby on Railsでクローラーを使う方法【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        RubyのフレームワークのRuby on Railsでクローラーを使う方法について解説しています。
+分析ツールなどいろんな情報をひとつのサイトにまとめたいという時に便利です。クローラーでは、手動ではできないことをできるので、その面白さを感じるはずです。
+&nbsp;
+なお本記事は、TechAcademyのWebアプリケーションオンラインブートキャンプの内容をもとに紹介しています。
+&nbsp;
+
+
+大石ゆかり
+
+田島メンター！！クローラーというのは何ですか〜？
+
+
+
+
+田島悠介
+
+Webサイトから情報を習得するプログラムのことを言うんだ。
+
+
+
+
+大石ゆかり
+
+例えばどんなときに使うんですか？
+
+
+
+
+田島悠介
+
+たくさんの量のデータを収集したり、それを分析したりするのにもクローラーは利用することができるよ。まずは必要なライブラリを紹介しよう。
+
+
+&nbsp;
+クローラーとは
+Rubyを勉強しているとクローラープログラムという言葉を見かけることがあります。
+このクローラーというのは、Webサイトを巡回して情報を取得するプログラムのことを言います。
+クローラを使用すれば、Yahooの最新ニュース情報を取得したり、facebookのタイムライン情報を取得するなど便利な機能を作成することができます。人がブラウザを操作して情報を収集するより、手間を省いて効率的に情報を取得することができますね。
+ただクローラはWebページに負荷をかける行為なので使用する際は注意して使用するようにしましょう。
+また、サイトによっては、APIを代用して情報を取得できるように用意していることも多いので、何かの情報を取得したいとおもった場合、まずはAPIが無いか調べるようにしましょう。
+&nbsp;
+使用する主なライブラリ
+前提条件として、Railsアプリケーションが作られていることとします。Railsアプリケーションの作り方は、Ruby on Railsなどを参考にしてください。
+それでは、クローラーを実装する前にクローラーで使用するライブラリの紹介をします。
+open-uri
+open-uriは指定したurlにアクセスするためのライブラリです。
+このライブラリがないとまずWebページにたどり着くことができないため、必須のライブラリとなっています。
+nokogiri
+nokogiriはスクレイピング、クローラーで頻繁に使用されるライブラリです。
+取得したHTMLの任意の部分だけ抜き取ったり、string型に変換したりできます。
+&nbsp;
+これらのライブラリを使用するには、Railsアプリケーションフォルダの直下にある「Gemfile」ファイルに以下を追記し、コンソールから「bundle install」を実行します。
+gem 'nokogiri'
+※open-uri は Ruby on Rails 標準ライブラリのため、Gemfileへの追記は不要です。
+&nbsp;
+
+
+大石ゆかり
+
+このふたつのライブラリが必要になるわけですね。
+
+
+
+
+田島悠介
+
+これらをrequireで読み込んで、クローラーのプログラムを作成するよ。実際に書いてみよう。
+
+
+
+
+大石ゆかり
+
+はい！
+
+
+&nbsp;
+[PR] Pythonで挫折しない学習方法を動画で公開中情報を取得する方法
+今回はRuby on Railsを用いて、Yahooのトップ情報を取得するクローラープログラムを作成していきたいと思います。
+初めに、コントローラーを作成します。コンソールで以下のコマンドを入力します。
+rails generate controller yahoos
+&nbsp;
+次にそれぞれのファイルを下記のように記述していってください。
+app/controllers/yahoos_controller.rb
+class YahoosController &lt; ApplicationController
+ require "open-uri"
+ require "nokogiri"
+ 
+ def index
+   uri = "http://www.yahoo.co.jp/"
+   @doc = Nokogiri::HTML(open(uri),nil,"utf-8")
+ end
+end
+
+app/views/yahoos/index.html.erb
+&lt;%= @doc %&gt;
+
+&nbsp;
+config/routes.rb
+Rails.application.routes.draw do
+ get 'yahoos/index'
+end
+
+&nbsp;
+yahoos/indexページ内を開くと以下のようにyahooのトップページのHTML情報が表示されます。ブラウザで見るのと違い、生のHTML情報なので、HTMLソースが表示されていますね。
+
+&nbsp;
+それでは詳しく見ていきましょう。
+Yahooのトップページから情報を取得してきているのは、app/controllers/yahoos_controller.rbファイルのindex関数内にある以下の記述です。
+以下では、指定したURIの情報を取得し、viewで表示するために@doc変数に格納しています。
+uri = "http://www.yahoo.co.jp/"
+ @doc = Nokogiri::HTML(open(uri),nil,"utf-8")
+&nbsp;
+app/views/yahoos/index.html.erbでは、@doc変数の内容を表示しています。
+&lt;%= @doc %&gt;
+
+&nbsp;
+&nbsp;
+それでは、index.html.erbを修正し、@docから必要な要素を抽出してみましょう。
+@doc変数には、HTML情報が文字列としてではなく、構造化されたHTML文章として取得されています。そのためnokogiriでは、CSSセレクタを使って要素を指定することができます。
+それでは、Yahooトップページから、リンク要素の一覧を取得してみましょう。
+「@doc.css(&#8220;a&#8221;)」と書くことで、@doc変数に格納されたリンク要素（aタグ）の一覧を取得できます。
+&lt;%
+@doc.css("a").each do |link|
+  #
+      </div>
+    </div>
+    <span class="entry-category">
+      Ruby
+    </span>
+  </div>
+</div>
+
+<div class="entry-list t1">
+  <div class="entry row">
+    <div class="entry-eyecatch col-md-4 col-sm-4 col-xs-4">
+      <a href="https://techacademy.jp/magazine/6873">
+        <div class="eyecatch-image" style="background-image:url('https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2016/02/852837e0cb14fe1200f8262b1bc76955-800x484.png')"></div>
+      </a>
+    </div>
+    <div class="entry-detail col-md-8 col-sm-8 col-xs-8">
+      <h3 class="entry-title">
+        <a href="https://techacademy.jp/magazine/6873" rel="bookmark">【自動でスクロールされる！】Infinite-Scrollの使い方ーWordPressプラグイン【初心者向け】</a>
+      </h3>
+      <div class="entry-excerpt">
+        WordPressのプラグインの使い方を初心者向けに紹介する記事です。
+今回は、記事一覧を自動でスクロールするプラグイン、Infinite-Scrollの使い方を紹介します。
+&nbsp;
+なお本記事は、TechAcademyのWordPressオンラインブートキャンプの内容をもとに紹介しています。
+&nbsp;
+
+
+大石ゆかり
+
+田島メンター！！よくスクロールバーの下までいくと自動的に新しいスクロールを作ってくれるサイトってあるじゃないですか？あぁいうサイトを作るのって難しいですか？？
+
+
+
+
+田島悠介
+
+普通に作ろうとすると難しいけど、WordPressとプラグインを組み合わせれば簡単に作れるよ！
+
+
+
+
+大石ゆかり
+
+え、WordPressでですか！？どうやるんですか？
+
+
+
+
+田島悠介
+
+「Infinite-Scroll」っていうプラグインがあってね・・・。
+
+
+&nbsp;
+Infinite-Scrollとは
+このプラグインは、トップページや記事一覧をajaxを利用して無限スクロールが可能になります。
+通常、ページの一番下に到達すると次のページに移動するなどリンクをクリックしないとページが遷移しません。
+しかし、このプラグインを使えば、自動的に次のページを読み込んでさらに下に表示してくれるので、わざわざページ遷移する必要がなくなります。
+普通であれば読み込みに時間がかかるところも、サクサク記事が表示されるので読者としても見やすいでしょう。
+下記のサイトでスクロールしてみると自動的に無限スクロールしてくれるので、ご覧ください。
+muuuuu.org
+&nbsp;
+Infinite-Scrollの使い方
+このプラグインは、管理画面から「プラグインを検索」してインストールもできますし、プラグイン公式サイトからダウンロードすることも可能です。
+インストールがわからない場合はWordPressのプラグインをインストールする方法をご覧ください。
+&nbsp;
+有効化すると、管理画面のサイドメニューにある設定から「Infinite-Scroll」という項目が表示されているはずです。
+実際に、設定画面を解説していきます。
+
+上から「Content Selector」は全ての記事を囲う要素を指定。
+「Navigation Selector」はナビゲーションを囲う要素を指定。
+「Next Selector」は次の記事一覧のリンクを指定。
+「Item Selector」はループして表示される要素を指定。
+
+「Loading Message」は読み込み中に表示されるメッセージ。
+「Finished Message」は最終ページまで表示された際のメッセージ。
+「Loading Image」では読み込み中の画像を指定できます。
+読み込みの際によく見る歯車のアイコンなどもここでアップロードできます。
+また、無限スクロールも一番下にスクロールされた時点で自動で行うのか、ボタンを押すと読み込むのか指定ができます。
+&nbsp;
+設定が完了したら保存します。
+WordPressにデフォルトで入っているテーマ「Twenty Ten, Twenty Eleven, Twenty Twelve」に関しては、プラグインを有効化するだけで動作しますが、別のテーマを利用している場合は、CSSのidやclassを設定する必要があります。
+&nbsp;
+今回の記事は以上です。
+&nbsp;
+
+
+大石ゆかり
+
+無限にスクロールできるってすごいですね！
+
+
+
+
+田島悠介
+
+そうだね。たくさんの記事を見せたい時に活躍するね！
+
+
+
+
+大石ゆかり
+
+はい、そうですね♪
+
+
+&nbsp;
+[お知らせ]TechAcademyでは、WordPressを使ってカスタマイズしたオリジナルサイトを構築できるWordPressオンラインブートキャンプを開催しています。期間中の8週間は現役エンジニアのメンターが毎日学習をサポートするので、独学よりも効率的に学ぶことができます。
+
+      </div>
+    </div>
+    <span class="entry-category">
+      WordPress
+    </span>
+  </div>
+</div>
+</div><!-- Similar Posts took 355.919 ms -->    </div>
+  
+  <!-- Outbrain -->
+  <!--<div class="OUTBRAIN wow fadeInUp" data-src="https://techacademy.jp/magazine/20602" data-widget-id="AR_1" data-ob-template="TechAcademy"></div>-->
+
+</div>
+
+          </div>
+
+    <div class="sidenav col-md-3 col-sm-3">
+
+    <div class="section ad">
+      <a href="https://techacademy.jp/briefing-lp-python-s?utm_source=tamagazine&utm_medium=referral&utm_campaign=sidebar-bottom-l" target="_blank">
+        <img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2017/12/online-bootcamp_300-250.jpg" alt="" />
+      </a>
+    </div>
+
+    
+      <div class="section ad">
+        <!-- TechAcademy_SidebarTop_300x250 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="ca-pub-2002061910642335"
+             data-ad-slot="5342688305"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+    
+        <div class="section ad">
+      <a href="https://bit.ly/2Sf3teL" target="_blank">
+        <img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/11/15151017/jibunken_banner.png" alt="" />
+      </a>
+    </div>
+    
+    <div class="section ranking">
+      <h4 class="side-mini-title title-danger"><i class="fa fa-line-chart fa-l"></i>WEEKLY RANKING</h4>
+              
+<!-- WordPress Popular Posts Plugin v4.0.0 [PHP] [weekly] [views] [custom] -->
+
+<div>
+<div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/14789'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2017/11/91828591_l-800x533.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/14789'>【例文あり】好印象を与える！年末年始の挨拶メールの書き方</a></h4></div></div><div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/9927'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2016/09/31583936_l-800x533-800x533.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/9927'>【超便利！】Excel(エクセル)でカレンダーを作成する方法</a></h4></div></div><div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/6235'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/06/20114531/eyecatch-20151002-620x349-1.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/6235'>今さら聞けない！GitHubの使い方【超初心者向け】</a></h4></div></div><div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/1330'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/06/20105336/78701411_s-800x548.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/1330'>意外と簡単？Photoshopで画像を切り抜く方法</a></h4></div></div><div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/14148'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2017/10/87287747_l-800x533.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/14148'>社会人として恥ずかしくない！「当社・弊社・貴社・御社」の使い方</a></h4></div></div><div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/5318'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/06/20112654/eyecatch-20150213_011-1.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/5318'>今さら聞けない！コマンドプロンプトの使い方【初心者向け】</a></h4></div></div><div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/9881'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2016/09/26349490_l-800x533-800x533.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/9881'>【困った！】いつの間にかローマ字入力が大文字になっていたときの対処法</a></h4></div></div><div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/15121'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/06/20113759/71537725_s-800x534.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/15121'>文書・メールで頻出の「様」と「殿」それぞれの意味と使い分け方を知ろう</a></h4></div></div><div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/4872'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/06/20110022/90779391_s-800x534.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/4872'>スタイルシート（CSS）の基本的な書き方【初心者向け】</a></h4></div></div><div class='entry-list t2'><div class='entry row'><div class='entry-eyecatch'><a href='https://techacademy.jp/magazine/14628'><div class='eyecatch-image' style='background-image:url(https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/06/20113934/67739041_s-800x533.jpg)'></div></a></div><h4 class='entry-title'><a href='https://techacademy.jp/magazine/14628'>言葉の意味をおさらいしてみよう！「各位」の正しい使い方と用例</a></h4></div></div>
+</div>
+
+<!-- End WordPress Popular Posts Plugin v4.0.0 -->
+          </div>
+
+    <div class="section twitter-box">
+      <a href="https://twitter.com/techacademy" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @techacademy</a>
+    </div>
+
+    <div class="section facebook-box">
+      <div class="fb-page" data-href="https://www.facebook.com/techacademy/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/techacademy/"><a href="https://www.facebook.com/techacademy/">TechAcademy [テックアカデミー]</a></blockquote></div></div>
+    </div>
+
+    <div class="section search-form">
+      <form role="search" method="get" id="searchform" action="https://techacademy.jp/magazine/" >
+        <input type="text" value="" name="s" class="search-input" placeholder="キーワード" />
+        <input type="submit" class="btn btn-danger search-btn" value="検索" />
+      </form>
+    </div>
+
+    <div class="scroll-follow">
+      <div class="ad">
+        <a href="https://techacademy.jp/briefing-lp-s?utm_source=tamagazine&utm_medium=referral&utm_campaign=sidebar-bottom" target='_blank'>
+          <img src="https://techacademy-magazine-cdn.techacademy.jp/wp-content/uploads/2019/06/20113018/online-bootcamp_300-250_06-1.jpg" alt="プログラミング体験会" />
+        </a>
+      </div>
+    </div>
+
+</div>
+
+  </div>
+</div>
+
+          <div class="sidebar">
+                </div>
+    
+</div>
+<!-- /container-fluid -->
+
+<!--breadcrumbs-->
+
+  <div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+      <span typeof="v:Breadcrumb">
+        <a rel="v:url" property="v:title" title="TechAcademy（テックアカデミー）" href="https://techacademy.jp/" class="breadcrumb-home"><i class="fa fa-home"></i><strong>TechAcademy（テックアカデミー）</strong></a>
+      </span>
+            <!-- Breadcrumb NavXT 6.1.0 -->
+<span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" title="Go to the プログラミング category archives." href="https://techacademy.jp/magazine/category/programming" class="taxonomy category">プログラミング</a></span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" title="Go to the Python category archives." href="https://techacademy.jp/magazine/category/programming/python" class="taxonomy category">Python</a></span><span typeof="v:Breadcrumb"><a rel="v:url" property="v:title" title="Go to Pythonでクローリングにより画像収集する方法【初心者向け】." href="https://techacademy.jp/magazine/19182" class="post post-post current-item">Pythonでクローリングにより画像収集する方法【初心者向け】</a></span>    </div>
+  </div>
+<!--/breadcrumbs-->
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="row">
+        <div class="col-sm-4 col-xs-6">
+          <h4>MENU</h4>
+          <ul>
+            <li>
+              <a href="https://techacademy.jp/magazine/about">当メディアについて</a>
+            </li>
+            <li>
+              <a href="https://techacademy.jp/magazine/ads">広告掲載について</a>
+            </li>
+            <li>
+              <a href="https://techacademy.jp/magazine/contact">お問い合わせ</a>
+            </li>
+            <li>
+              <a href="https://techacademy.jp/magazine/category">カテゴリーから探す</a>
+            </li>
+            <li>
+              <a href="https://techacademy.jp/magazine/archive">アーカイブから探す</a>
+            </li>
+            <li>
+              <a href="https://techacademy.jp/magazine/keyword">キーワードから探す</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-xs-6">
+          <h4>TechAcademy</h4>
+          <ul>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/rails-bootcamp"><i class="fa fa-diamond fa-fw fa-l"></i>Webアプリ<span class="mobile-hide">ケーション</span>コース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/webdesign-bootcamp"><i class="fa fa-object-group fa-fw fa-l"></i>Webデザインコース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/frontend-bootcamp"><i class="fa fa-code fa-fw fa-l"></i>フロントエンドコース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/webdirection-bootcamp"><i class="fa fa-sitemap fa-fw fa-l"></i>Webディレクションコース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/webmarketing-bootcamp"><i class="fa fa-line-chart fa-fw fa-l"></i>Webマーケティングコース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/wordpress-bootcamp"><i class="fa fa-wordpress fa-fw fa-l"></i>WordPressコース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/iphone-bootcamp"><i class="fa fa-apple fa-fw fa-l"></i>iPhoneアプリコース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/android-bootcamp"><i class="fa fa-android fa-fw fa-l"></i>Androidアプリコース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/unity-bootcamp"><i class="fa fa-fw fa-gamepad fa-l"></i>Unityコース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/appdesign-bootcamp"><i class="fa fa-tablet fa-fw fa-l"></i>UI/UXデザインコース</a>
+              </li>
+              <li>
+                <a target="_blank" href="https://techacademy.jp/first-programming-bootcamp"><i class="fa fa-leaf fa-fw fa-l"></i>はじ<span class="mobile-hide">めての</span>プロ<span class="mobile-hide">グラミング</span>コース</a>
+              </li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-xs-6">
+          <h4 class="bottom-row">GROUP SERVICE</h4>
+          <ul>
+            <li>
+              <a target="_blank" href="https://techacademy.jp/junior">TechAcademyジュニア</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://techacademy.jp/career">TechAcademyキャリア</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://techacademy.jp/biz/training">IT研修</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://techacademy.jp/biz/career">IT人材採用支援</a>
+            </li>
+            <li>
+              <a target="_blank" href="https://edtech.jp">EdTech.jp（ITスクール検索）</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="row">
+        <div class="copyright col-md-6 col-sm-6 col-xs-6">
+          &copy;&nbsp;<span>2009 - 2019&nbsp;</span>KiRAMEX &nbsp;<span class="mobile-hide">CORPORATION.</span>
+        </div>
+        <div class="social-links col-md-6 col-sm-6 col-xs-6">
+          <a target="_blank" href="https://www.facebook.com/techacademy"><i class="fa fa-facebook"></i></a><a target="_blank" href="https://twitter.com/techacademy"><i class="fa fa-twitter"></i></a><a target="_blank" href="https://techacademy.jp/magazine/feed/"><i class="fa fa-rss"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201951'></script>
+<script type='text/javascript' src='https://techacademy.jp/magazine/wp-content/plugins/wp-syntax/js/wp-syntax.js?ver=1.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var leadin_wordpress = {"userRole":"visitor","pageType":"post","leadinPluginVersion":"6.1.9"};
+/* ]]> */
+</script>
+<script type='text/javascript' async defer src='//js.hs-scripts.com/1823092.js?ver=4.8.12'></script>
+<script type='text/javascript' src='https://techacademy.jp/magazine/wp-includes/js/wp-embed.min.js?ver=4.8.12'></script>
+<script type='text/javascript' src='https://stats.wp.com/e-201951.js' async='async' defer='defer'></script>
+<script type='text/javascript'>
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:6.4.2',blog:'44127139',post:'19182',tz:'9',srv:'techacademy.jp'} ]);
+	_stq.push([ 'clickTrackerInit', '44127139', '19182' ]);
+</script>
+
+<a class="pagetop" href="#top"></a>
+
+<script src="https://techacademy.jp/magazine/wp-content/themes/ta-magazine/js/drawer.js"></script>
+
+<!-- Pocket-->
+<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+<!-- /Pocket-->
+
+<!-- Criteo-->
+<script type="text/javascript" src="//static.criteo.net/js/ld/ld.js" async="true"></script>
+<script type="text/javascript">
+window.criteo_q = window.criteo_q || [];
+window.criteo_q.push(
+  { event: "setAccount", account: 30101 },
+  { event: "setSiteType", type: "m" },
+  { event: "viewItem", item: "briefing_31" }
+);
+</script>
+<!-- /Criteo-->
+
+<!-- Intercom-->
+<!-- /Intercom-->
+
+</body>
+</html>
+
+<!-- Dynamic page generated in 1.316 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-12-18 05:35:41 -->
+
+<!-- super cache -->
