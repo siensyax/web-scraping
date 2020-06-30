@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html
+  lang="ja"
+
+data-admin-domain="//blog.hatena.ne.jp"
+data-author="paiza"
+data-avail-langs="ja en"
+data-blog="paiza.hatenablog.com"
+data-blog-host="paiza.hatenablog.com"
+data-blog-is-public="1"
+data-blog-name="paiza開発日誌"
+data-blog-owner="paiza"
+data-blog-uri="https://paiza.hatenablog.com/"
+data-blog-uuid="11696248318757672692"
+data-blogs-uri-base="https://paiza.hatenablog.com"
+data-brand="pro"
+data-data-layer="{&quot;hatenablog&quot;:{&quot;pro&quot;:&quot;pro&quot;,&quot;router_type&quot;:&quot;blogs&quot;,&quot;brand&quot;:&quot;pro&quot;,&quot;blog&quot;:{&quot;lang&quot;:&quot;ja&quot;,&quot;owner_name&quot;:&quot;paiza&quot;,&quot;enable_keyword_link&quot;:&quot;false&quot;,&quot;enable_ads&quot;:&quot;false&quot;,&quot;disable_ads&quot;:&quot;pro&quot;,&quot;is_sleeping&quot;:&quot;false&quot;,&quot;is_public&quot;:&quot;true&quot;,&quot;uri&quot;:&quot;https://paiza.hatenablog.com/&quot;,&quot;force_pc_view&quot;:&quot;false&quot;,&quot;entry_show_footer_related_entries&quot;:&quot;true&quot;,&quot;content_seems_japanese&quot;:&quot;true&quot;,&quot;name&quot;:&quot;paiza\u958b\u767a\u65e5\u8a8c&quot;,&quot;is_responsive_view&quot;:&quot;false&quot;},&quot;permalink_entry&quot;:{&quot;date&quot;:&quot;2018-08-06&quot;,&quot;uri&quot;:&quot;https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95&quot;,&quot;author_name&quot;:&quot;paiza&quot;,&quot;categories&quot;:&quot;\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0\t\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0-\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0\u521d\u5fc3\u8005\t\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0-\u30d7\u30ed\u30b0\u30e9\u30df\u30f3\u30b0\u5b66\u7fd2\t\u958b\u767a\u30cd\u30bf&quot;,&quot;title&quot;:&quot;Python\u30fbPHP\u30fbPerl\u30fbBash\u30fbRuby\u3067\u7c21\u5358\u306bWeb\u30b9\u30af\u30ec\u30a4\u30d4\u30f3\u30b0\u3059\u308b\u65b9\u6cd5\u3092\u89e3\u8aac\u3059\u308b&quot;,&quot;hour&quot;:&quot;14&quot;},&quot;brand_tracking_category&quot;:&quot;pro&quot;,&quot;admin&quot;:{},&quot;analytics&quot;:{&quot;property_id&quot;:&quot;&quot;,&quot;brand_property_id&quot;:&quot;&quot;,&quot;non_sampling_property_id&quot;:&quot;&quot;,&quot;separated_property_id&quot;:&quot;UA-29716941-21&quot;},&quot;page_id&quot;:&quot;entry&quot;}}"
+data-device="pc"
+data-dont-recommend-pro="false"
+data-global-domain="https://hatenablog.com"
+data-globalheader-color="b"
+data-globalheader-type="pc"
+data-has-touch-view="1"
+data-hide-header="1"
+data-page="entry"
+data-parts-domain="https://hatenablog-parts.com"
+data-plus-available="1"
+data-pro="true"
+data-router-type="blogs"
+data-sentry-dsn="https://03a33e4781a24cf2885099fed222b56d@sentry.io/1195218"
+data-sentry-environment="production"
+data-sentry-sample-rate="0.1"
+data-static-domain="https://cdn.blog.st-hatena.com"
+data-version="8f7260ed952f8559e77a0e1d4082b2fd"
+
+itemscope
+itemtype="http://schema.org/Article"
+
+  data-initial-state="{}"
+
+  >
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+  
+
+  
+
+
+
+  
+
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=9; IE=10; IE=11" />
+  <title>Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する - paiza開発日誌</title>
+
+  
+  <link rel="canonical" href="https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95"/>
+
+
+
+  
+  
+
+<meta itemprop="name" content="Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する - paiza開発日誌"/>
+
+  <meta itemprop="image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20180803/20180803164805.jpg"/>
+
+
+  <meta property="og:title" content="Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する - paiza開発日誌"/>
+<meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95"/>
+
+  <meta property="og:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20180803/20180803164805.jpg"/>
+
+<meta property="og:image:alt" content="Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する - paiza開発日誌"/>
+    <meta property="og:description" content="Photo by Ted Eytan 秋山です。最近PythonでWebスクレイピングしたりする記事をよく目にする気がするので、私も書いてみようと思います。ちなみにPythonはNumpyやPandasなどの分析に便利なライブラリやツールがあったりするので使いやすい部分はあると思いますが、「Webスクレイピングに向いてる言語はPython！」というわけではありません。スクレイピングは別にPython以外の言語でもできますし、むしろ単純なデータの抽出程度なら無理にPythonを使うよりも、自分がふだんからよく使っている言語でやったほうがよいかと思います。今回は、Python・PHP・Perl・B…" />
+<meta property="og:site_name" content="paiza開発日誌"/>
+
+  <meta property="article:published_time" content="1533532733" />
+
+    <meta property="article:tag" content="プログラミング" />
+    <meta property="article:tag" content="プログラミング-プログラミング初心者" />
+    <meta property="article:tag" content="プログラミング-プログラミング学習" />
+    <meta property="article:tag" content="開発ネタ" />
+      <meta name="twitter:card"  content="summary_large_image" />
+    <meta name="twitter:image" content="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20180803/20180803164805.jpg" />  <meta name="twitter:title" content="Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する - paiza開発日誌" />    <meta name="twitter:description" content="Photo by Ted Eytan 秋山です。最近PythonでWebスクレイピングしたりする記事をよく目にする気がするので、私も書いてみようと思います。ちなみにPythonはNumpyやPandasなどの分析に便利なライブラリやツールがあったりするので使いやすい部分はあると思いますが、「Webスクレイピングに向いて…" />  <meta name="twitter:app:name:iphone" content="はてなブログアプリ" />
+  <meta name="twitter:app:id:iphone" content="583299321" />
+  <meta name="twitter:app:url:iphone" content="hatenablog:///open?uri=https%3A%2F%2Fpaiza.hatenablog.com%2Fentry%2F2018%2F08%2F06%2FPython%25E3%2583%25BBPHP%25E3%2583%25BBPerl%25E3%2583%25BBBash%25E3%2583%25BBRuby%25E3%2581%25A7%25E7%25B0%25A1%25E5%258D%2598%25E3%2581%25ABWeb%25E3%2582%25B9%25E3%2582%25AF%25E3%2583%25AC%25E3%2582%25A4%25E3%2583%2594%25E3%2583%25B3%25E3%2582%25B0%25E3%2581%2599%25E3%2582%258B%25E6%2596%25B9%25E6%25B3%2595" />
+  
+    <meta name="description" content="Photo by Ted Eytan 秋山です。最近PythonでWebスクレイピングしたりする記事をよく目にする気がするので、私も書いてみようと思います。ちなみにPythonはNumpyやPandasなどの分析に便利なライブラリやツールがあったりするので使いやすい部分はあると思いますが、「Webスクレイピングに向いてる言語はPython！」というわけではありません。スクレイピングは別にPython以外の言語でもできますし、むしろ単純なデータの抽出程度なら無理にPythonを使うよりも、自分がふだんからよく使っている言語でやったほうがよいかと思います。今回は、Python・PHP・Perl・B…" />
+    <meta name="google-site-verification" content="MsWnQqQ0zooprDfgS4dd0EcATPFPgYb9pe1rRPBwPlU" />
+    <meta name="keywords" content="java求人,php求人,ruby求人,python求人,c++求人,c#求人,it、web、転職,求人,募集,プログラミング試験,エンジニア,プログラマー,pg,se,コーディング面接,プログラミング試験,初心者,入門" />
+
+
+  
+<script
+  id="embed-gtm-data-layer-loader"
+  data-data-layer-page-specific="{&quot;hatenablog&quot;:{&quot;blogs_permalink&quot;:{&quot;blog_afc_issued&quot;:&quot;false&quot;,&quot;brand_hide_afc&quot;:&quot;false&quot;,&quot;blog_hide_afc_func&quot;:&quot;true&quot;,&quot;has_related_entries_with_elasticsearch&quot;:&quot;true&quot;,&quot;blog_struct_hide_afc&quot;:&quot;true&quot;,&quot;is_author_pro&quot;:&quot;true&quot;,&quot;blog_hide_afc_field&quot;:&quot;false&quot;,&quot;entry_afc_issued&quot;:&quot;false&quot;,&quot;is_blog_sleeping&quot;:&quot;false&quot;}}}"
+>
+(function() {
+  function loadDataLayer(elem, attrName) {
+    if (!elem) { return {}; }
+    var json = elem.getAttribute(attrName);
+    if (!json) { return {}; }
+    return JSON.parse(json);
+  }
+
+  var globalVariables = loadDataLayer(
+    document.documentElement,
+    'data-data-layer'
+  );
+  var pageSpecificVariables = loadDataLayer(
+    document.getElementById('embed-gtm-data-layer-loader'),
+    'data-data-layer-page-specific'
+  );
+
+  var variables = [globalVariables, pageSpecificVariables];
+
+  if (!window.dataLayer) {
+    window.dataLayer = [];
+  }
+
+  for (var i = 0; i < variables.length; i++) {
+    window.dataLayer.push(variables[i]);
+  }
+})();
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P4CXTW');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PX9M89V');</script>
+<!-- End Google Tag Manager -->
+
+
+
+  <link rel="shortcut icon" href="https://paiza.hatenablog.com/favicon">
+<link rel="apple-touch-icon" href="https://cdn.blog.st-hatena.com/images/touch-icon-iphone-retina.png">
+<link rel="icon" sizes="192x192" href="https://cdn.blog.st-hatena.com/images/common/meta-icon-global.png">
+
+  
+<link rel="alternate" type="application/atom+xml" title="Atom" href="https://paiza.hatenablog.com/feed"/>
+<link rel="alternate" type="application/rss+xml" title="RSS2.0" href="https://paiza.hatenablog.com/rss"/>
+<link rel="alternate" type="application/json+oembed" href="https://hatenablog.com/oembed?url=https%3A%2F%2Fpaiza.hatenablog.com%2Fentry%2F2018%2F08%2F06%2FPython%25E3%2583%25BBPHP%25E3%2583%25BBPerl%25E3%2583%25BBBash%25E3%2583%25BBRuby%25E3%2581%25A7%25E7%25B0%25A1%25E5%258D%2598%25E3%2581%25ABWeb%25E3%2582%25B9%25E3%2582%25AF%25E3%2583%25AC%25E3%2582%25A4%25E3%2583%2594%25E3%2583%25B3%25E3%2582%25B0%25E3%2581%2599%25E3%2582%258B%25E6%2596%25B9%25E6%25B3%2595&amp;format=json" title="oEmbed Profile of Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する"/>
+<link rel="alternate" type="text/xml+oembed" href="https://hatenablog.com/oembed?url=https%3A%2F%2Fpaiza.hatenablog.com%2Fentry%2F2018%2F08%2F06%2FPython%25E3%2583%25BBPHP%25E3%2583%25BBPerl%25E3%2583%25BBBash%25E3%2583%25BBRuby%25E3%2581%25A7%25E7%25B0%25A1%25E5%258D%2598%25E3%2581%25ABWeb%25E3%2582%25B9%25E3%2582%25AF%25E3%2583%25AC%25E3%2582%25A4%25E3%2583%2594%25E3%2583%25B3%25E3%2582%25B0%25E3%2581%2599%25E3%2582%258B%25E6%2596%25B9%25E6%25B3%2595&amp;format=xml" title="oEmbed Profile of Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する"/>
+  
+  <link rel="author" href="http://www.hatena.ne.jp/paiza/">
+
+  
+
+
+  
+    <link rel="stylesheet" type="text/css" href="https://cdn.blog.st-hatena.com/css/blog.css?version=2c17f42f85cf323a2a651c1e7c614fe5d45eb18d&amp;env=production"/>
+
+    
+  <link rel="stylesheet" type="text/css" href="https://blog.hatena.ne.jp/-/blog_style/11696248318757672692/7ff6785bbce94e7c2aefc414d8f4c3bb87476da4"/>
+  
+
+  
+
+  
+<script> </script>
+
+  
+<style>
+  div#google_afc_user,
+  div.google-afc-user-container,
+  div.google_afc_image,
+  div.google_afc_blocklink {
+      display: block !important;
+  }
+</style>
+
+
+  
+
+  <meta name="google-site-verification" content="DbVQSoUR7Pf5mTYECUdK3rzjo5evGONL0v7vIZQ_540" />
+<!-- Hotjar Tracking Code for https://paiza.hatenablog.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1560667,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+
+  <body class="page-entry enable-top-editarea enable-bottom-editarea category-プログラミング category-プログラミング-プログラミング初心者 category-プログラミング-プログラミング学習 category-開発ネタ globalheader-off">
+    
+    <div id="header-container">
+     <div id="sp-suggest" style="display: none;"><a id="sp-suggest-link" href="#">スマートフォン用の表示で見る</a></div>
+    </div>
+
+    <div id="globalheader-container"
+  data-brand="hatenablog"
+  style="display: none"
+  
+  >
+  <iframe id="globalheader" height="37" frameborder="0" allowTransparency="true"></iframe>
+</div>
+
+
+    <div id="container">
+      <div id="container-inner">
+        <header id="blog-title" data-brand="hatenablog">
+  <div id="blog-title-inner" >
+    <div id="blog-title-content">
+      <h1 id="title"><a href="https://paiza.hatenablog.com/">paiza開発日誌</a></h1>
+      
+        <h2 id="blog-description">IT/Webエンジニア向け総合求人・学習サービス「paiza」の開発者が、プログラミングやITエンジニアの転職などについて書いています。</h2>
+      
+    </div>
+  </div>
+</header>
+
+        
+  <div id="top-editarea">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX9M89V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+  </div>
+
+
+        
+            <div id="top-box">
+    <div class="breadcrumb" data-test-id="breadcrumb">
+      <div class="breadcrumb-inner">
+        <a class="breadcrumb-link" href="https://paiza.hatenablog.com/"><span>トップ</span></a>          <span class="breadcrumb-gt">&gt;</span>          <span class="breadcrumb-child">            <a class="breadcrumb-child-link" href="https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0"><span>プログラミング</span></a>          </span>            <span class="breadcrumb-gt">&gt;</span>          <span class="breadcrumb-child">            <span>Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する</span>          </span>      </div>
+    </div>
+  </div>
+  <script type="application/ld+json" class="test-breadcrumb-json-ld">
+    {"itemListElement":[{"position":1,"item":{"name":"トップ","@id":"https://paiza.hatenablog.com/"},"@type":"ListItem"},{"@type":"ListItem","item":{"@id":"https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0","name":"プログラミング"},"position":2}],"@type":"BreadcrumbList","@context":"http://schema.org"}
+  </script>
+        
+        
+
+
+
+
+<div id="content" class="hfeed"
+  
+  >
+  <div id="content-inner">
+    <div id="wrapper">
+      <div id="main">
+        <div id="main-inner">
+          
+
+
+          
+  
+  <!-- google_ad_section_start -->
+  <!-- rakuten_ad_target_begin -->
+  
+  
+  
+
+  
+
+  
+    
+      
+        <article class="entry hentry js-entry-article date-first autopagerize_page_element chars-2800 words-100 mode-hatena entry-odd" id="entry-10257846132607201513" data-keyword-campaign="" data-uuid="10257846132607201513" data-publication-type="entry">
+  <div class="entry-inner">
+    <header class="entry-header">
+  
+    <div class="date entry-date first">
+    <a href="https://paiza.hatenablog.com/archive/2018/08/06" rel="nofollow">
+      <time pubdate datetime="2018-08-06T05:18:53Z" title="2018-08-06T05:18:53Z">
+        <span class="date-year">2018</span><span class="hyphen">-</span><span class="date-month">08</span><span class="hyphen">-</span><span class="date-day">06</span>
+      </time>
+    </a>
+  </div>
+  <h1 class="entry-title">
+  <a href="https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95" class="entry-title-link bookmark">Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する</a>
+</h1>
+
+  
+  
+
+  <div class="entry-categories categories">
+    
+    <a href="https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0" class="entry-category-link category-プログラミング">プログラミング</a>
+    
+    <a href="https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%88%9D%E5%BF%83%E8%80%85" class="entry-category-link category-プログラミング-プログラミング初心者">プログラミング-プログラミング初心者</a>
+    
+    <a href="https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%AD%A6%E7%BF%92" class="entry-category-link category-プログラミング-プログラミング学習">プログラミング-プログラミング学習</a>
+    
+    <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF" class="entry-category-link category-開発ネタ">開発ネタ</a>
+    
+  </div>
+
+
+  
+
+  
+
+</header>
+
+    
+
+    <div class="entry-content">
+  
+    <p><span itemscope itemtype="http://schema.org/Photograph"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20180803/20180803164805.jpg" alt="f:id:paiza:20180803164805j:plain" title="f:id:paiza:20180803164805j:plain" class="hatena-fotolife" itemprop="image"></span><br />
+<span style="font-size: 80%">Photo by <a href="https://www.flickr.com/photos/taedc/5439782104/" target="_blank">Ted Eytan</a></span><br />
+<span itemscope itemtype="http://schema.org/Photograph"><a href="http://f.hatena.ne.jp/paiza/20141105142551" class="hatena-fotolife" itemprop="url"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20141105/20141105142551.jpg" alt="f:id:paiza:20141105142551j:image:w40" title="f:id:paiza:20141105142551j:image:w40" class="hatena-fotolife" style="width:40px" itemprop="image"></a></span> 秋山です。</p><p>最近PythonでWebスクレイピングしたりする記事をよく目にする気がするので、私も書いてみようと思います。</p><p>ちなみにPythonはNumpyやPandasなどの分析に便利なライブラリやツールがあったりするので使いやすい部分はあると思いますが、「Webスクレイピングに向いてる言語はPython！」というわけではありません。</p><p><b>スクレイピングは別にPython以外の言語でもできます</b>し、むしろ<b>単純なデータの抽出程度なら無理にPythonを使うよりも、自分がふだんからよく使っている言語でやったほうがよい</b>かと思います。</p><p>今回は、<b>Python・PHP・Perl・Bash・Rubyを使って、Webスクレイピングを試してみたので、各言語でのやり方を説明</b>していきます。<br />
+<br />
+</p>
+
+<div class="section">
+    <h3>■Python・PHP・Perl・Bash・RubyでWebスクレイピングする</h3>
+    <p>今回、作業としては「<a href="https://paiza.hatenablog.com/">&#x3053;&#x306E;&#x30D6;&#x30ED;&#x30B0;</a>の右メニューの最新記事タイトルを取得し、タイトルとURLとセットで出力する」という単純なWebスクレイピングをしてみます。</p><p>また、可能な限り外部ライブラリに頼らずにやってみました。（※普通に外部ライブラリが使える環境をお持ちの方は、外部ライブラリにどんどん頼ってよいかと思います）</p><p>それぞれの言語を使って上記作業を<b>できるだけシンプルに実現する方法</b>と、さらにもう少し踏み込んでいろいろな作業をするなら…というところも補足していきます。<br />
+<br />
+</p>
+
+</div>
+<div class="section">
+    <h3>■Python</h3>
+    <p>RequestsというHTTPライブラリ(入ってない場合はpipで入れてください！)とPythonの標準のHTMLParserを使って、自前でHTMLパースを雑に行ってみるとこんな感じです。</p><p><iframe src="https://paiza.io/projects/e/MnzdbGr96VBKbv_S-dXbLA?theme=twilight" width="100%" height="500" scrolling="no" seamless="seamless"></iframe></p><p>標準なのでHTMLParserを使ってやってみました…が、自前でHTMLParserをごそごそするよりは、 <a href="https://lxml.de/">lxml</a> もしくは <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup</a>を使った方がスマートにできるかと思います。<br />
+<br />
+</p>
+
+</div>
+<div class="section">
+    <h3>■PHP</h3>
+    <p>PHPの場合、外部ライブラリに頼らず http:// でHTMLを取得 ～ DOMDocument として読み込み ～ XPathを使ったデータの取り出しまでが行えますし、コードもこんな感じでシンプルですね。</p><p><iframe src="https://paiza.io/projects/e/_vY0MJFIrsrimDPdxhbDkQ?theme=twilight" width="100%" height="500" scrolling="no" seamless="seamless"></iframe></p><p>少なくとも書捨てのデータ取得なら、PythonよりはPHPの方が向いているのでは？という気がします。歯ブラシと言われるだけのことはありますね。（※PHPの開発者である<a href="https://en.wikiquote.org/wiki/Rasmus_Lerdorf">&#x30E9;&#x30B9;&#x30DE;&#x30B9;&#x30FB;&#x30E9;&#x30FC;&#x30C9;&#x30D5;&#x6C0F;&#x306E;&#x767A;&#x8A00;</a>）</p><p>XPathに関しては他の言語でも使えるようにできるライブラリもあり、スクレイプする上ではかなり有用です。詳しくは以下のドキュメントなどで学べるかと思います。<br />
+<a href="https://msdn.microsoft.com/ja-jp/library/ms256471(v=vs.120).aspx">XPath &#x69CB;&#x6587;</a></p><p></p>
+
+</div>
+<div class="section">
+    <h3>■Perl</h3>
+    <p>Perlの場合、HTMLをパースしてもよかったのですがpaiza.IOでは使えない…ので、今度は正規表現でほしいデータを引っ張ってみました。</p><p><iframe src="https://paiza.io/projects/e/1Lo23lCl8xqw38GQQGRGxA?theme=twilight" width="100%" height="500" scrolling="no" seamless="seamless"></iframe></p><p></p>
+
+</div>
+<div class="section">
+    <h3>■Bash</h3>
+    <p>Bashの場合、grepでがんばる感じですね。Perlと同じ正規表現を使っています。</p><p><iframe src="https://paiza.io/projects/e/UH1-DVmTd7aRtsUGQW4tJg?theme=twilight" width="100%" height="500" scrolling="no" seamless="seamless"></iframe></p><p>Xpathがインストールされているなら、PHPと共通のXPathをコピペすればgrepの代替になります。</p><p>ただちょっとデータを取りたいだけ…という場合は意外とアリなのかもしれません。<br />
+<br />
+</p>
+
+</div>
+<div class="section">
+    <h3>■Ruby</h3>
+    <p>paiza.IOにはスクレイピングするときに便利なNokogiri が入っているので楽ですね。(逆にデフォルトだけだとRexmlしかない感じなので、HTMLをパースするのは厳しいですね)</p><p><iframe src="https://paiza.io/projects/e/uPOyOJWYwlh8TLGePlX6YA?theme=twilight" width="100%" height="500" scrolling="no" seamless="seamless"></iframe></p><p>今回はNokogiri を使いましたが、Rubyだと <a href="http://code.yorickpeterse.com/oga/latest/">Oga</a> なども便利ですね。</p><p>途中でブログパーツとして使ったオンライン実行環境サービス「<a href="https://paiza.io/">paiza.IO (&#x30D1;&#x30A4;&#x30B6;&#x30FB;&#x30A2;&#x30A4;&#x30AA;&#x30FC;)</a>」は<a href="https://paiza.io/">&#x3053;&#x3061;&#x3089;</a></p><p></p>
+
+</div>
+<div class="section">
+    <h3>■まとめ</h3>
+    <p>というわけでPython・PHP・Perl・Bash・Rubyを使って、Webスクレイピングを試してみました。</p><p>今回は可能な限り標準ライブラリを中心にやってみましたが(RubyはNokogiri使っちゃいましたけど)、Go言語などの場合は外部ライブラリに頼ったほうがよさそうです。</p><p>とりあえずいろいろな言語を試してみて、ただデータを取得したいだけなら、PHPが一番楽なのでは？と思いました。</p><p>ただ、取得後にいろいろな処理を加えたいのであれば、Pythonなどで取得した上でPandasやデータフレームに入れる…というのがよさそうです。Bashとかでデータ取得して、それをファイルに吐き出させた後、別の言語で処理をさせる…というのもアリな気がします。</p><br />
+<p>この辺の記事でもPythonを使ってWeb上からデータを取ってきていろいろしていますので、興味のある方は見てみてください。<br />
+<iframe src="https://hatenablog-parts.com/embed?url=https%3A%2F%2Fpaiza.hatenablog.com%2Fentry%2F2017%2F09%2F29%2F%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%258CPython%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E8%2587%25AA%25E5%258B%2595%25E5%258C%2596%25E3%2581%2597%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258B4%25E3%2581%25A4%25E3%2581%25AE%25E3%2581%2593%25E3%2581%25A8" title="エンジニアがPythonを使って自動化している4つのこと―退屈なことはPythonにやらせよう - paiza開発日誌" class="embed-card embed-blogcard" scrolling="no" frameborder="0" style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"></iframe><cite class="hatena-citation"><a href="https://paiza.hatenablog.com/entry/2017/09/29/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%8CPython%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B4%E3%81%A4%E3%81%AE%E3%81%93%E3%81%A8">paiza.hatenablog.com</a></cite></p><p><iframe src="https://hatenablog-parts.com/embed?url=https%3A%2F%2Fpaiza.hatenablog.com%2Fentry%2Fpaizacloud_jupyter_notebook%2F2017%2F12%2F27" title="機械学習にも便利！PythonライブラリやJupyter Notebookが今すぐ使えるクラウドIDE - paiza開発日誌" class="embed-card embed-blogcard" scrolling="no" frameborder="0" style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"></iframe><cite class="hatena-citation"><a href="https://paiza.hatenablog.com/entry/paizacloud_jupyter_notebook/2017/12/27">paiza.hatenablog.com</a></cite></p><br />
+<p>動画でプログラミングが学べる<a href="https://paiza.jp/works">paiza&#x30E9;&#x30FC;&#x30CB;&#x30F3;&#x30B0;</a>では、新たに「<a href="https://paiza.jp/works/ai_ml_lp">Python&times;AI&#x30FB;&#x6A5F;&#x68B0;&#x5B66;&#x7FD2;&#x5165;&#x9580;&#x7DE8;</a>」が追加されました。</p><p><a href="https://paiza.jp/works/ai_ml_lp"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20180720/20180720173341.jpg"></a></p><p>人気声優の上坂すみれさん演じる進行役のスベトラーナ・小百合・ベレフスカヤと一緒に、実際に画像認識技術を使いながら、初心者でも機械学習を体験・学習できるレッスン内容になっています。</p><p><a href="https://paiza.jp/works/ai_ml_lp">Python&times;AI&#x30FB;&#x6A5F;&#x68B0;&#x5B66;&#x7FD2;&#x5165;&#x9580;&#x7DE8;</a>は全編無料でごらんいただけます。詳しくは<a href="https://paiza.jp/works/ai_ml_lp">&#x3053;&#x3061;&#x3089;</a><br />
+<a href="https://paiza.jp/works/ai_ml_lp"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20180723/20180723123954.png"></a></p><br />
+<p><hr></p><br />
+<p><a href="https://paiza.jp/works"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20170206/20170206122359.jpg"></a><br />
+「<a href="https://paiza.jp/works">paiza&#x30E9;&#x30FC;&#x30CB;&#x30F3;&#x30B0;</a>」では、<b>未経験者でもブラウザさえあれば、今すぐプログラミングの基礎が動画で学べるレッスン</b>を多数公開しております。</p><p>詳しくは<a href="https://paiza.jp/works">&#x3053;&#x3061;&#x3089;</a></p><p><a href="https://paiza.jp/works/"><img src="https://paiza-webapp.s3.amazonaws.com/front/images/news/blog_bnr_04.png" alt="paizaラーニング"></a></p><p>そして<a href="http://paiza.jp">paiza</a>では、Webサービス開発企業などで求められるコーディング力や、テストケースを想定する力などが問われるプログラミングスキルチェック問題も提供しています。</p><p>スキルチェックに挑戦した人は、その結果によって<b>S・A・B・C・D・Eの6段階のランクを取得できます。必要なスキルランクを取得すれば、書類選考なしで企業の求人に応募することも可能です。</b>「自分のプログラミングスキルを客観的に知りたい」「スキルを使って転職したい」という方は、ぜひチャレンジしてみてください。</p><p>詳しくは<a href="https://paiza.jp/challenges/info">&#x3053;&#x3061;&#x3089;</a></p><p><a href="https://paiza.jp/challenges/info"><img src="https://paiza-webapp.s3.amazonaws.com/front/images/news/blog_bnr_05.png" alt="paizaのスキルチェック"></a></p>
+
+</div>
+    
+
+  
+</div>
+
+    
+  <footer class="entry-footer">
+    
+    <p class="entry-footer-section">
+  <span class="author vcard"><span class="fn" data-load-nickname="1" data-user-name="paiza">paiza</span></span>
+  <span class="entry-footer-time"><a href="https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95"><time data-relative datetime="2018-08-06T05:18:53Z" title="2018-08-06T05:18:53Z" pubdate class="updated">2018-08-06 14:18</time></a></span>
+</p>
+
+    
+  <div class="hatena-star-container">
+  </div>
+  <div class="hatena-star-metadata" style="display: none">
+    <a class="hatena-star-permalink" href="https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95">Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する</a>
+  </div>
+
+
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      <a href="https://b.hatena.ne.jp/entry/https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95" class="hatena-bookmark-button" data-hatena-bookmark-url="https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="ja" title="この記事をはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="この記事をはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95"></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://paiza.hatenablog.com/entry/2018/08/06/Python%E3%83%BBPHP%E3%83%BBPerl%E3%83%BBBash%E3%83%BBRuby%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%ABWeb%E3%82%B9%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%94%E3%83%B3%E3%82%B0%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95" data-count="vertical" data-text="Python・PHP・Perl・Bash・Rubyで簡単にWebスクレイピングする方法を解説する - paiza開発日誌" data-lang="ja">Tweet</a>
+    </div>
+  
+  
+  
+  
+</div>
+
+    
+
+    <div class="customized-footer">
+      
+
+        
+
+        
+
+          <div class="entry-footer-modules" id="entry-footer-secondary-modules">      
+<div class="hatena-module hatena-module-related-entries" >
+      
+  <!-- Hatena-Epic-has-related-entries-with-elasticsearch:true -->
+  <div class="hatena-module-title">
+    関連記事
+  </div>
+  <div class="hatena-module-body">
+    <ul class="related-entries hatena-urllist urllist-with-thumbnails">
+  
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="https://paiza.hatenablog.com/entry/2018/10/26/%E9%96%8B%E7%99%BA%E7%B5%8C%E9%A8%93%E3%82%BC%E3%83%AD%E3%81%AE%E5%96%B6%E6%A5%AD%E3%81%8CPython%E3%81%A8%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%81%AB%E6%8C%91%E6%88%A6%E3%81%97%E3%81%A6%E3%81%BF">
+  <img alt="開発経験ゼロの営業がPythonと機械学習に挑戦してみた話" src="https://cdn.image.st-hatena.com/image/square/f4e34b85871be9adfa34d13ce5de39f3571a59a1/backend=imagemagick;height=100;version=1;width=100/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpaiza%2F20181025%2F20181025173909.png" class="urllist-image related-entries-image" title="開発経験ゼロの営業がPythonと機械学習に挑戦してみた話" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="https://paiza.hatenablog.com/archive/2018/10/26" rel="nofollow">
+    <time pubdate datetime="2018-10-26T07:00:00Z" title="2018-10-26T07:00:00Z">
+      2018-10-26
+    </time>
+  </a>
+</div>
+
+          <a href="https://paiza.hatenablog.com/entry/2018/10/26/%E9%96%8B%E7%99%BA%E7%B5%8C%E9%A8%93%E3%82%BC%E3%83%AD%E3%81%AE%E5%96%B6%E6%A5%AD%E3%81%8CPython%E3%81%A8%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%81%AB%E6%8C%91%E6%88%A6%E3%81%97%E3%81%A6%E3%81%BF" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">開発経験ゼロの営業がPythonと機械学習に挑戦してみた話</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">有吉です。昨年入社したpaiza(ギノ) の営業です。paizaはITエン…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="https://paiza.hatenablog.com/entry/2018/06/11/Python%E3%81%8C%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%82%84%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%AB%E4%BD%BF%E3%82%8F%E3%82%8C%E3%81%8C%E3%81%A1">
+  <img alt="Pythonが機械学習やディープラーニングに使われがちな5つの理由" src="https://cdn.image.st-hatena.com/image/square/c62f8d08b40a44490a36797d8c51c4c1d181c141/backend=imagemagick;height=100;version=1;width=100/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpaiza%2F20180606%2F20180606170455.jpg" class="urllist-image related-entries-image" title="Pythonが機械学習やディープラーニングに使われがちな5つの理由" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="https://paiza.hatenablog.com/archive/2018/06/11" rel="nofollow">
+    <time pubdate datetime="2018-06-11T04:38:51Z" title="2018-06-11T04:38:51Z">
+      2018-06-11
+    </time>
+  </a>
+</div>
+
+          <a href="https://paiza.hatenablog.com/entry/2018/06/11/Python%E3%81%8C%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92%E3%82%84%E3%83%87%E3%82%A3%E3%83%BC%E3%83%97%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%AB%E4%BD%BF%E3%82%8F%E3%82%8C%E3%81%8C%E3%81%A1" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">Pythonが機械学習やディープラーニングに使われがちな5つの理由</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">Photo by thekirbster 秋山です。皆さんPythonは好きですか？私…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="https://paiza.hatenablog.com/entry/2017/09/19/%E9%9D%A2%E5%80%92%E3%81%AA%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%AA%E3%81%97%EF%BC%81%E5%88%9D%E5%BF%83%E8%80%85%E3%82%82%E3%81%99%E3%81%90%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F">
+  <img alt="面倒な環境構築なし！初心者もすぐにプログラミングできるサイト9選" src="https://cdn.image.st-hatena.com/image/square/07ff93094b0eb77677d4be307917f738a09b821d/backend=imagemagick;height=100;version=1;width=100/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpaiza%2F20170919%2F20170919125247.jpg" class="urllist-image related-entries-image" title="面倒な環境構築なし！初心者もすぐにプログラミングできるサイト9選" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="https://paiza.hatenablog.com/archive/2017/09/19" rel="nofollow">
+    <time pubdate datetime="2017-09-19T06:00:00Z" title="2017-09-19T06:00:00Z">
+      2017-09-19
+    </time>
+  </a>
+</div>
+
+          <a href="https://paiza.hatenablog.com/entry/2017/09/19/%E9%9D%A2%E5%80%92%E3%81%AA%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%AA%E3%81%97%EF%BC%81%E5%88%9D%E5%BF%83%E8%80%85%E3%82%82%E3%81%99%E3%81%90%E3%81%AB%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">面倒な環境構築なし！初心者もすぐにプログラミングできるサイト9選</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">Photo by IDM Südtirol - Alto Adige : ICT &amp; Automation こん…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="https://paiza.hatenablog.com/entry/2015/12/08/%E7%84%A1%E6%96%99%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%AE%9F%E8%A1%8C%E7%92%B0%E5%A2%83paiza.IO%E3%80%81PHP7%E3%81%A8Swift%E3%81%AB%E5%AF%BE%E5%BF%9C">
+  <img alt="無料プログラミング実行環境paiza.IO、PHP7とSwiftに対応" src="https://cdn.image.st-hatena.com/image/square/2c146feb0a5e734c724b4126fbeafb2388e63caf/backend=imagemagick;height=100;version=1;width=100/http%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpaiza%2F20141113%2F20141113171634.png" class="urllist-image related-entries-image" title="無料プログラミング実行環境paiza.IO、PHP7とSwiftに対応" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="https://paiza.hatenablog.com/archive/2015/12/08" rel="nofollow">
+    <time pubdate datetime="2015-12-08T02:27:15Z" title="2015-12-08T02:27:15Z">
+      2015-12-08
+    </time>
+  </a>
+</div>
+
+          <a href="https://paiza.hatenablog.com/entry/2015/12/08/%E7%84%A1%E6%96%99%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%AE%9F%E8%A1%8C%E7%92%B0%E5%A2%83paiza.IO%E3%80%81PHP7%E3%81%A8Swift%E3%81%AB%E5%AF%BE%E5%BF%9C" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">無料プログラミング実行環境paiza.IO、PHP7とSwiftに対応</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">こんにちは。谷口です。paizaが公開しているITエンジニア向けの…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <a class="urllist-image-link related-entries-image-link" href="https://paiza.hatenablog.com/entry/2015/10/08/Web%E3%82%A2%E3%83%97%E3%83%AA%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E4%BA%BA%E5%90%91%E3%81%91%E3%80%81%E3%81%BB%E3%81%BC%E7%84%A1%E6%96%99%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3">
+  <img alt="Webアプリ作りたい人向け、ほぼ無料のプログラミング学習サイト11選" src="https://cdn.image.st-hatena.com/image/square/9ac36ccb0d620e1534cc1a36c3ddc922fc6615f1/backend=imagemagick;height=100;version=1;width=100/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpaiza%2F20161205%2F20161205213832.jpg" class="urllist-image related-entries-image" title="Webアプリ作りたい人向け、ほぼ無料のプログラミング学習サイト11選" width="100">
+</a>
+            <div class="urllist-date-link related-entries-date-link">
+  <a href="https://paiza.hatenablog.com/archive/2015/10/08" rel="nofollow">
+    <time pubdate datetime="2015-10-08T05:30:46Z" title="2015-10-08T05:30:46Z">
+      2015-10-08
+    </time>
+  </a>
+</div>
+
+          <a href="https://paiza.hatenablog.com/entry/2015/10/08/Web%E3%82%A2%E3%83%97%E3%83%AA%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E4%BA%BA%E5%90%91%E3%81%91%E3%80%81%E3%81%BB%E3%81%BC%E7%84%A1%E6%96%99%E3%81%AE%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">Webアプリ作りたい人向け、ほぼ無料のプログラミング学習サイト11選</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">Photo by jmettraux こんにちは。谷口です。「プログラミングを…</div>
+      </div>
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+  </div>
+        
+
+      
+    </div>
+    
+  <div class="comment-box">
+    
+    <ul class="comment">
+      <li class="read-more-comments" style="display: none;"><a>もっと読む</a></li>
+    </ul>
+    
+      <a class="leave-comment-title">コメントを書く</a>
+    
+  </div>
+
+  </footer>
+
+  </div>
+</article>
+
+      
+      
+    
+  
+
+  
+  <!-- rakuten_ad_target_end -->
+  <!-- google_ad_section_end -->
+  
+  
+  
+  <div class="pager pager-permalink permalink">
+    
+      
+      <span class="pager-prev">
+        <a href="https://paiza.hatenablog.com/entry/2018/08/07/%E3%80%8C%E4%BB%95%E4%BA%8B%E8%BE%9E%E3%82%81%E3%81%9F%E3%81%84%EF%BC%81%E3%80%8D%E3%81%A8%E3%81%84%E3%81%86%E4%BA%BA%E3%81%8C%E8%BB%A2%E8%81%B7%E3%81%A7%E5%A4%B1%E6%95%97%E3%81%97%E3%81%AA%E3%81%84" rel="prev">
+          <span class="pager-arrow">&laquo; </span>
+          「仕事辞めたい！」という人が転職で失敗…
+        </a>
+      </span>
+    
+    
+      
+      <span class="pager-next">
+        <a href="https://paiza.hatenablog.com/entry/2018/08/03/%E5%88%9D%E5%BF%83%E8%80%85%E5%90%91%E3%81%91%E3%83%BB%E5%95%8F%E9%A1%8C%E3%82%92%E8%A7%A3%E3%81%8D%E3%81%AA%E3%81%8C%E3%82%89%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%AE" rel="next">
+          初心者向け・問題を解きながらプログラミ…
+          <span class="pager-arrow"> &raquo;</span>
+        </a>
+      </span>
+    
+  </div>
+
+
+  
+
+
+
+        </div>
+      </div>
+
+      <aside id="box1">
+  <div id="box1-inner">
+  </div>
+</aside>
+
+    </div><!-- #wrapper -->
+
+    
+<aside id="box2">
+  
+  <div id="box2-inner">
+    
+      
+<div class="hatena-module hatena-module-html">
+  <div class="hatena-module-body">
+    <script type="text/javascript">
+// ランダムに画像を表示する
+jmp = new Array();
+img = new Array();
+tag = new Array();
+// ジャンプ先のアドレス(数字は画像と対応)
+//---
+jmp[0] = "https://paiza.jp/cgc";
+jmp[1] = "https://paiza.jp/moshijo";
+jmp[2] = "https://paiza.jp/poh/ando";
+jmp[3] = "https://paiza.jp/works";
+jmp[4] = "https://paiza.jp/lp/student/";
+jmp[5] = "https://paiza.jp/paizajack";
+jmp[6] = "https://paiza.jp/paijo";
+jmp[7] = "https://paiza.jp/paijo";
+jmp[8] = "https://paiza.jp/logic_summoner";
+jmp[9] = "https://paiza.jp/works/ai_ml_lp";
+
+jmp[10] = "https://paiza.jp/botchi/";
+jmp[11] = "https://en-gage.net/gi-no_career/";
+
+jmp[12] = "https://paiza.jp/works/lp/hacker";
+jmp[13] = "https://paiza.jp/works/lp/hacker";
+jmp[14] = "https://paiza.jp/works/lp/hacker";
+jmp[15] = "https://paiza.jp/works/lp/hacker";
+jmp[16] = "https://paiza.jp/works/lp/hacker";
+jmp[17] = "https://paiza.jp/works/lp/hacker";
+jmp[18] = "https://paiza.jp/works/lp/hacker";
+
+
+// 画像のアドレス(数字はジャンプ先のアドレスと対応)
+//---
+img[0] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20181016/20181016111106.png";
+img[1] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20161206/20161206091119.jpg";
+img[2] = "https://f.st-hatena.com/images/fotolife/p/paiza/20151208/20151208131230.jpg?1449547965";
+img[3] = "https://f.st-hatena.com/images/fotolife/p/paiza/20151101/20151101190311.jpg?1446372249";
+img[4] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20170111/20170111212305.jpg";
+img[5] = "https://cdn-ak2.f.st-hatena.com/images/fotolife/p/paiza/20171127/20171127215630.jpg";
+img[6] = "https://cdn-ak2.f.st-hatena.com/images/fotolife/p/paiza/20170626/20170626203410.png";
+img[7] = "https://cdn-ak2.f.st-hatena.com/images/fotolife/p/paiza/20170626/20170626203410.png";
+img[8] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20170515/20170515195648.jpg";
+img[9] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20180723/20180723100753.png";
+
+img[10] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190122/20190122105655.png";
+img[11] = "https://paiza-webapp.s3.amazonaws.com/front/images/news/bnr_joboffer.png";
+
+img[12] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190730/20190730101123.png";
+img[13] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190730/20190730101123.png";
+img[14] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190730/20190730101123.png";
+img[15] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190730/20190730101123.png";
+img[16] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190730/20190730101123.png";
+img[17] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190730/20190730101123.png";
+img[18] = "https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190730/20190730101123.png";
+
+
+
+
+// gaタグ
+//---
+tag[0] = "v_learning_banner_cgc2";
+tag[1] = "v_learning_banner_moshijo";
+tag[2] = "v_learning_banner_ando";
+tag[3] = "v_learning_banner_neko";
+tag[4] = "v_student_banner_nainaitei";
+tag[5] = "v_long_banner_paizajack_B";
+tag[6] = "v_long_banner_paijo";
+tag[7] = "v_long_banner_paijo";
+tag[8] = "v_long_banner_logic";
+tag[9] = "v_long_banner_ai_sumipe";
+
+tag[10] = "v_long_banner_botchi";
+tag[11] = "v_long_banner_recruit";
+
+tag[12] = "v_long_banner_hacker";
+tag[13] = "v_long_banner_hacker";
+tag[14] = "v_long_banner_hacker";
+tag[15] = "v_long_banner_hacker";
+tag[16] = "v_long_banner_hacker";
+tag[17] = "v_long_banner_hacker";
+tag[18] = "v_long_banner_hacker";
+
+n = Math.floor(Math.random()*jmp.length);
+
+// 表示バナーtrackEvent
+var view_name = 'View_'+tag[n];
+
+// 結果を表示
+document.write("<div style=\"margin-bottom:10px;\"><a href=\""+jmp[n]+"\" target=\"_blank\"><img src=\""+img[n]+"\"></a></div>");
+</script>
+
+
+
+<br />
+<h2>初心者向け無料<br />プログラミング入門</h2>
+<ul>
+<li><a href="https://paiza.jp/works" onclick="ga('send','pageview', {'page' : '/v_side_works'});">paizaラーニング</a></li>
+<li><a href="https://paiza.jp/works/lp/hacker" onclick="ga('send','pageview', {'page' : '/v_side_works'});">セキュリティ入門</a></li>
+<li><a href="https://paiza.jp/works/ai_ml_lp" onclick="ga('send','pageview', {'page' : '/v_side_works'});">AI機械学習入門</a></li>
+<li><a href="https://paiza.jp/works/php/primerfemale" onclick="ga('send','pageview', {'page' : '/v_side_works'});">PHP入門(10レッスン)</a></li>
+<li><a href="https://paiza.jp/works/python3/primer" onclick="ga('send','pageview', {'page' : '/v_side_works'});">Python 3入門(11レッスン)</a></li>
+<li><a href="https://paiza.jp/works/ruby/primerfemale" onclick="ga('send','pageview', {'page' : '/v_side_works'});">Ruby入門(10レッスン)</a></li>
+<li><a href="https://paiza.jp/works/java/primer" onclick="ga('send','pageview', {'page' : '/v_side_works'});">Java入門(10レッスン)</a></li>
+<li><a href="https://paiza.jp/works/cs/primer" onclick="ga('send','pageview', {'page' : '/v_side_works'});">C#入門(8レッスン)</a></li>
+<li><a href="https://paiza.jp/works/js/primer" onclick="ga('send','pageview', {'page' : '/v_side_works'});">JavaScript入門(4レッスン)</a></li>
+<li><a href="https://paiza.jp/works/html/primer" onclick="ga('send','pageview', {'page' : '/v_side_works'});">HTML/CSS入門(3レッスン)</a></li>
+<li><a href="https://paiza.jp/works/sql/primer" onclick="ga('send','pageview', {'page' : '/v_side_works'});">DB/SQL入門(2レッスン)</a></li>
+<li><a href="https://paiza.jp/works/rails/primer" onclick="ga('send','pageview', {'page' : '/v_side_works'});">Rails入門(7レッスン)</a></li>
+<li><a href="https://paiza.jp/works/search_courses/1010" onclick="ga('send','pageview', {'page' : '/v_side_works'});">Webアプリ開発入門</a></li>
+<li><a href="https://paiza.jp/works/linux/primer" onclick="ga('send','pageview', {'page' : '/v_side_works'});">Linux入門</a></li>
+<li><a href="https://paiza.jp/works/algorithm/primer" onclick="ga('send','pageview', {'page' : '/v_side_works'});">アルゴリズム入門(3レッスン)</a></li> </ul>
+<br />
+<!-- -->
+<br />
+<a href="https://paiza.jp/lp/trial"><img src="https://f.st-hatena.com/images/fotolife/p/paiza/20141003/20141003172808.jpg?1412324922" alt="20141003172808" title="paiza" width="180" height="180"></a>
+  </div>
+</div>
+
+    
+      
+
+<div class="hatena-module hatena-module-profile">
+  <div class="hatena-module-title">
+    プロフィール
+  </div>
+  <div class="hatena-module-body">
+    
+    <a href="https://paiza.hatenablog.com/about" class="profile-icon-link">
+      <img src="https://cdn.profile-image.st-hatena.com/users/paiza/profile.png?1378959060"
+      alt="id:paiza" class="profile-icon" />
+    </a>
+    
+
+    
+    <span class="id">
+      <a href="https://paiza.hatenablog.com/about" class="hatena-id-link"><span data-load-nickname="1" data-user-name="paiza">id:paiza</span></a>
+      
+  
+    
+    
+      <a href="http://blog.hatena.ne.jp/guide/pro" title="はてなブログPro"><i class="badge-type-pro">はてなブログPro</i></a>
+    
+  
+
+
+    </span>
+    
+
+    
+
+    
+    <div class="profile-description">
+      <p>「paiza(<a href="https://paiza.jp">https://paiza.jp</a>)」は、IT/Webエンジニア向け総合求人サービスです。プログラミングテストに合格すれば書類選考免除で面接へ進めます。また、プログラミング初心者向けに動画学習サービスも提供しています。</p>
+
+    </div>
+    
+
+    
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box"
+  
+  >
+
+  <a href="#" class="hatena-follow-button js-hatena-follow-button">
+    <span class="subscribing">
+      <span class="foreground">読者です</span>
+      <span class="background">読者をやめる</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once>
+      <span class="foreground">読者になる</span>
+      <span class="background">読者になる</span>
+    </span>
+  </a>
+  <div class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">
+    </span>
+  </div>
+</div>
+
+    
+
+    
+  </div>
+</div>
+
+    
+      
+<div class="hatena-module hatena-module-html">
+  <div class="hatena-module-body">
+    <a href="https://twitter.com/paiza_official" class="twitter-follow-button" data-show-count="false">Follow @paiza_official</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fofficial.paiza&width=104&layout=button_count&action=like&size=small&show_faces=false&share=false&height=21&appId" width="104" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+  </div>
+</div>
+
+    
+      
+<div class="hatena-module hatena-module-html">
+    <div class="hatena-module-title">RSS</div>
+  <div class="hatena-module-body">
+    <a href="https://paiza.hatenablog.com/feed"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20170302/20170302152436.png" alt="rss"></a>
+  </div>
+</div>
+
+    
+      
+<div class="hatena-module hatena-module-html">
+    <div class="hatena-module-title">paiza[パイザ]</div>
+  <div class="hatena-module-body">
+    <a href="https://paiza.jp">
+<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20130917/20130917190908.gif?1379412762" alt="paiza プログラミング力で勝負できるエンジニアの転職サイト">
+</a>
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-links">
+  <div class="hatena-module-title">
+    リンク
+  </div>
+  <div class="hatena-module-body">
+    <ul class="hatena-urllist">
+      
+        <li>
+          <a href="http://paiza.jp">paiza[パイザ]</a>
+        </li>
+      
+        <li>
+          <a href="https://www.facebook.com/official.paiza">公式Facebookページ</a>
+        </li>
+      
+        <li>
+          <a href="https://twitter.com/paiza_official">公式Twitterアカウント</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-search-box">
+  <div class="hatena-module-title">
+    検索
+  </div>
+  <div class="hatena-module-body">
+    <form class="search-form" role="search" action="https://paiza.hatenablog.com/search" method="get">
+  <input type="text" name="q" class="search-module-input" value="" placeholder="記事を検索" required>
+  <input type="submit" value="検索" class="search-module-button" />
+</form>
+
+  </div>
+</div>
+
+    
+      
+
+<div class="hatena-module hatena-module-archive" data-archive-type="default" data-archive-url="https://paiza.hatenablog.com/archive">
+  <div class="hatena-module-title">
+    <a href="https://paiza.hatenablog.com/archive">月別アーカイブ</a>
+  </div>
+  <div class="hatena-module-body">
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-recent-entries ">
+  <div class="hatena-module-title">
+    <a href="https://paiza.hatenablog.com/archive">
+      最新記事
+    </a>
+  </div>
+  <div class="hatena-module-body">
+    <ul class="recent-entries hatena-urllist urllist-with-thumbnails">
+  
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+                      <a class="urllist-image-link recent-entries-image-link" href="https://paiza.hatenablog.com/entry/2019/12/06/%E6%97%A2%E5%8D%92%E3%83%BB%E7%AC%AC%E4%BA%8C%E6%96%B0%E5%8D%92%E3%83%BB%E8%81%B7%E6%AD%B4%E3%81%AA%E3%81%97%E3%81%8B%E3%82%89%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E3%81%AA%E3%82%8B">
+  <img alt="既卒・第二新卒・職歴なしからエンジニアになるためにすべきこと4つ" src="https://cdn.image.st-hatena.com/image/square/6e766ad7d82e7afc26d5b10d99b8905f4f46aa4c/backend=imagemagick;height=100;version=1;width=180/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpaiza%2F20191206%2F20191206131607.jpg" class="urllist-image recent-entries-image" title="既卒・第二新卒・職歴なしからエンジニアになるためにすべきこと4つ" width="180">
+</a>
+            <div class="urllist-date-link recent-entries-date-link">
+  <a href="https://paiza.hatenablog.com/archive/2019/12/06" rel="nofollow">
+    <time pubdate datetime="2019-12-06T05:00:00Z" title="2019-12-06T05:00:00Z">
+      2019-12-06
+    </time>
+  </a>
+</div>
+
+          <a href="https://paiza.hatenablog.com/entry/2019/12/06/%E6%97%A2%E5%8D%92%E3%83%BB%E7%AC%AC%E4%BA%8C%E6%96%B0%E5%8D%92%E3%83%BB%E8%81%B7%E6%AD%B4%E3%81%AA%E3%81%97%E3%81%8B%E3%82%89%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E3%81%AA%E3%82%8B" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">既卒・第二新卒・職歴なしからエンジニアになるためにすべきこと4つ</a>
+
+
+                      <a href="https://b.hatena.ne.jp/entry/https://paiza.hatenablog.com/entry/2019/12/06/%E6%97%A2%E5%8D%92%E3%83%BB%E7%AC%AC%E4%BA%8C%E6%96%B0%E5%8D%92%E3%83%BB%E8%81%B7%E6%AD%B4%E3%81%AA%E3%81%97%E3%81%8B%E3%82%89%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E3%81%AA%E3%82%8B" class="bookmark-widget-counter">
+  <img src="https://b.hatena.ne.jp/entry/image/https://paiza.hatenablog.com/entry/2019/12/06/%E6%97%A2%E5%8D%92%E3%83%BB%E7%AC%AC%E4%BA%8C%E6%96%B0%E5%8D%92%E3%83%BB%E8%81%B7%E6%AD%B4%E3%81%AA%E3%81%97%E3%81%8B%E3%82%89%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AB%E3%81%AA%E3%82%8B" alt="はてなブックマーク - 既卒・第二新卒・職歴なしからエンジニアになるためにすべきこと4つ" />
+</a>
+
+          
+
+                      <div class="urllist-entry-body recent-entries-entry-body">こんにちは。谷口です。paizaを運営しているとITエンジニアを目指して就活・転職活動…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+                      <a class="urllist-image-link recent-entries-image-link" href="https://paiza.hatenablog.com/entry/2019/12/05/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E6%9C%AA%E7%B5%8C%E9%A8%93%E8%80%85%E3%81%8C%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E3%82%84%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B">
+  <img alt="プログラミング未経験者がアプリ開発やエンジニア転職のためにやったこと" src="https://cdn.image.st-hatena.com/image/square/4ecb45c435787345d4cb8fd1153a1cd7956e6efb/backend=imagemagick;height=100;version=1;width=180/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpaiza%2F20191203%2F20191203135211.png" class="urllist-image recent-entries-image" title="プログラミング未経験者がアプリ開発やエンジニア転職のためにやったこと" width="180">
+</a>
+            <div class="urllist-date-link recent-entries-date-link">
+  <a href="https://paiza.hatenablog.com/archive/2019/12/05" rel="nofollow">
+    <time pubdate datetime="2019-12-05T06:00:00Z" title="2019-12-05T06:00:00Z">
+      2019-12-05
+    </time>
+  </a>
+</div>
+
+          <a href="https://paiza.hatenablog.com/entry/2019/12/05/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E6%9C%AA%E7%B5%8C%E9%A8%93%E8%80%85%E3%81%8C%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E3%82%84%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">プログラミング未経験者がアプリ開発やエンジニア転職のためにやったこと</a>
+
+
+                      <a href="https://b.hatena.ne.jp/entry/https://paiza.hatenablog.com/entry/2019/12/05/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E6%9C%AA%E7%B5%8C%E9%A8%93%E8%80%85%E3%81%8C%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E3%82%84%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B" class="bookmark-widget-counter">
+  <img src="https://b.hatena.ne.jp/entry/image/https://paiza.hatenablog.com/entry/2019/12/05/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E6%9C%AA%E7%B5%8C%E9%A8%93%E8%80%85%E3%81%8C%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E3%82%84%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B" alt="はてなブックマーク - プログラミング未経験者がアプリ開発やエンジニア転職のためにやったこと" />
+</a>
+
+          
+
+                      <div class="urllist-entry-body recent-entries-entry-body">こんにちは。谷口です。実務未経験からプログラミングを勉強したり、エンジニアを目…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+                      <a class="urllist-image-link recent-entries-image-link" href="https://paiza.hatenablog.com/entry/2019/12/04/%E5%9B%BD%E9%9A%9B%E6%AF%94%E8%BC%83%E3%81%A7%E8%A6%8B%E3%81%88%E3%81%A6%E3%81%8D%E3%81%9F%E3%80%81%E6%97%A5%E6%9C%AC%E3%81%AEIT%E6%A5%AD%E7%95%8C%E3%81%8C%E6%8A%B1%E3%81%88%E3%81%A6%E3%81%84%E3%82%8B">
+  <img alt="国際比較で見えてきた、日本のIT業界が抱えている「本当の問題」とは" src="https://cdn.image.st-hatena.com/image/square/df5ecc266fe597664f61ff87e91953821c073677/backend=imagemagick;height=100;version=1;width=180/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpaiza%2F20191128%2F20191128141610.jpg" class="urllist-image recent-entries-image" title="国際比較で見えてきた、日本のIT業界が抱えている「本当の問題」とは" width="180">
+</a>
+            <div class="urllist-date-link recent-entries-date-link">
+  <a href="https://paiza.hatenablog.com/archive/2019/12/04" rel="nofollow">
+    <time pubdate datetime="2019-12-04T05:00:00Z" title="2019-12-04T05:00:00Z">
+      2019-12-04
+    </time>
+  </a>
+</div>
+
+          <a href="https://paiza.hatenablog.com/entry/2019/12/04/%E5%9B%BD%E9%9A%9B%E6%AF%94%E8%BC%83%E3%81%A7%E8%A6%8B%E3%81%88%E3%81%A6%E3%81%8D%E3%81%9F%E3%80%81%E6%97%A5%E6%9C%AC%E3%81%AEIT%E6%A5%AD%E7%95%8C%E3%81%8C%E6%8A%B1%E3%81%88%E3%81%A6%E3%81%84%E3%82%8B" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">国際比較で見えてきた、日本のIT業界が抱えている「本当の問題」とは</a>
+
+
+                      <a href="https://b.hatena.ne.jp/entry/https://paiza.hatenablog.com/entry/2019/12/04/%E5%9B%BD%E9%9A%9B%E6%AF%94%E8%BC%83%E3%81%A7%E8%A6%8B%E3%81%88%E3%81%A6%E3%81%8D%E3%81%9F%E3%80%81%E6%97%A5%E6%9C%AC%E3%81%AEIT%E6%A5%AD%E7%95%8C%E3%81%8C%E6%8A%B1%E3%81%88%E3%81%A6%E3%81%84%E3%82%8B" class="bookmark-widget-counter">
+  <img src="https://b.hatena.ne.jp/entry/image/https://paiza.hatenablog.com/entry/2019/12/04/%E5%9B%BD%E9%9A%9B%E6%AF%94%E8%BC%83%E3%81%A7%E8%A6%8B%E3%81%88%E3%81%A6%E3%81%8D%E3%81%9F%E3%80%81%E6%97%A5%E6%9C%AC%E3%81%AEIT%E6%A5%AD%E7%95%8C%E3%81%8C%E6%8A%B1%E3%81%88%E3%81%A6%E3%81%84%E3%82%8B" alt="はてなブックマーク - 国際比較で見えてきた、日本のIT業界が抱えている「本当の問題」とは" />
+</a>
+
+          
+
+                      <div class="urllist-entry-body recent-entries-entry-body">こんにちは。倉内です。「日本のIT業界って世界（特にアメリカ）と比べて駄目だよね…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+                      <a class="urllist-image-link recent-entries-image-link" href="https://paiza.hatenablog.com/entry/2019/12/03/%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%81%8B%E3%82%89IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E7%9B%AE%E6%8C%87%E3%81%99%E4%BA%BA%E3%81%8C%E9%9D%A2%E6%8E%A5%E3%81%A7%E3%82%88%E3%81%8F%E8%81%9E">
+  <img alt="未経験からITエンジニアを目指す人が面接でよく聞かれる4つの質問" src="https://cdn.image.st-hatena.com/image/square/5c197693e8a19b1d1cfb4a1575b686ae25dc8797/backend=imagemagick;height=100;version=1;width=180/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fp%2Fpaiza%2F20190627%2F20190627044429.jpg" class="urllist-image recent-entries-image" title="未経験からITエンジニアを目指す人が面接でよく聞かれる4つの質問" width="180">
+</a>
+            <div class="urllist-date-link recent-entries-date-link">
+  <a href="https://paiza.hatenablog.com/archive/2019/12/03" rel="nofollow">
+    <time pubdate datetime="2019-12-03T05:30:00Z" title="2019-12-03T05:30:00Z">
+      2019-12-03
+    </time>
+  </a>
+</div>
+
+          <a href="https://paiza.hatenablog.com/entry/2019/12/03/%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%81%8B%E3%82%89IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E7%9B%AE%E6%8C%87%E3%81%99%E4%BA%BA%E3%81%8C%E9%9D%A2%E6%8E%A5%E3%81%A7%E3%82%88%E3%81%8F%E8%81%9E" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">未経験からITエンジニアを目指す人が面接でよく聞かれる4つの質問</a>
+
+
+                      <a href="https://b.hatena.ne.jp/entry/https://paiza.hatenablog.com/entry/2019/12/03/%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%81%8B%E3%82%89IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E7%9B%AE%E6%8C%87%E3%81%99%E4%BA%BA%E3%81%8C%E9%9D%A2%E6%8E%A5%E3%81%A7%E3%82%88%E3%81%8F%E8%81%9E" class="bookmark-widget-counter">
+  <img src="https://b.hatena.ne.jp/entry/image/https://paiza.hatenablog.com/entry/2019/12/03/%E6%9C%AA%E7%B5%8C%E9%A8%93%E3%81%8B%E3%82%89IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E7%9B%AE%E6%8C%87%E3%81%99%E4%BA%BA%E3%81%8C%E9%9D%A2%E6%8E%A5%E3%81%A7%E3%82%88%E3%81%8F%E8%81%9E" alt="はてなブックマーク - 未経験からITエンジニアを目指す人が面接でよく聞かれる4つの質問" />
+</a>
+
+          
+
+                      <div class="urllist-entry-body recent-entries-entry-body">こんにちは。谷口です。違う業種や職種からITエンジニアへの転職を目指しているみな…</div>
+      </div>
+    </li>
+  
+</ul>
+
+      </div>
+</div>
+
+    
+      
+<div class="hatena-module hatena-module-entries-access-ranking"
+  data-count="10"
+  data-source="access"
+  data-enable_customize_format="0"
+
+  data-display_entry_category="0"
+  data-display_entry_image="1"
+  data-display_entry_image_size_width="180"
+  data-display_entry_image_size_height="100"
+  data-display_entry_body_length="0"
+  data-display_entry_date="0"
+  data-display_entry_title_length="20"
+  data-restrict_entry_title_length="0"
+  data-display_bookmark_count="1"
+
+>
+  <div class="hatena-module-title">
+    
+      注目記事
+    
+  </div>
+  <div class="hatena-module-body">
+    
+  </div>
+</div>
+
+    
+      
+
+<div class="hatena-module hatena-module-category">
+  <div class="hatena-module-title">
+    カテゴリー
+  </div>
+  <div class="hatena-module-body">
+    <ul class="hatena-urllist">
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">
+            プログラミング (413)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%88%9D%E5%BF%83%E8%80%85">
+            プログラミング-プログラミング初心者 (342)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E5%AD%A6%E7%BF%92">
+            プログラミング-プログラミング学習 (351)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E6%95%99%E8%82%B2">
+            プログラミング-プログラミング教育 (26)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">
+            プログラミング-競技プログラミング (5)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF">
+            開発ネタ (476)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-Web%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E7%B4%B9%E4%BB%8B">
+            開発ネタ-Webサービス紹介 (356)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E6%9B%B8%E7%B1%8D%E7%B4%B9%E4%BB%8B">
+            開発ネタ-書籍紹介 (87)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E6%A9%9F%E6%A2%B0%E5%AD%A6%E7%BF%92">
+            開発ネタ-機械学習 (29)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0">
+            開発ネタ-アルゴリズム (17)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-Web%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3">
+            開発ネタ-Webデザイン (22)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF">
+            開発ネタ-フレームワーク (14)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E6%9A%97%E5%8F%B7%E9%80%9A%E8%B2%A8">
+            開発ネタ-暗号通貨 (8)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-Docker">
+            開発ネタ-Docker (9)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-MEAN%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF">
+            開発ネタ-MEANスタック (3)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-UI%2FUX">
+            開発ネタ-UI/UX (4)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3">
+            開発ネタ-ディレクション (4)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E8%91%97%E4%BD%9C%E6%A8%A9">
+            開発ネタ-著作権 (1)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E4%BC%81%E7%94%BB">
+            開発ネタ-企画 (2)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%BB%E5%83%8D%E3%81%8D%E6%96%B9">
+            キャリア・働き方 (225)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%BB%E5%83%8D%E3%81%8D%E6%96%B9-IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2">
+            キャリア・働き方-ITエンジニアのキャリア (195)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%BB%E5%83%8D%E3%81%8D%E6%96%B9-%E7%AC%AC%E4%BA%8C%E6%96%B0%E5%8D%92">
+            キャリア・働き方-第二新卒 (37)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%BB%E5%83%8D%E3%81%8D%E6%96%B9-IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E5%81%A5%E5%BA%B7">
+            キャリア・働き方-ITエンジニアの健康 (11)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%BB%E5%83%8D%E3%81%8D%E6%96%B9-%E6%97%A2%E5%8D%92">
+            キャリア・働き方-既卒 (6)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%BB%E5%83%8D%E3%81%8D%E6%96%B9-%E8%B5%B7%E6%A5%AD%2F%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">
+            キャリア・働き方-起業/スタートアップ (5)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%BB%E5%83%8D%E3%81%8D%E6%96%B9-%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF">
+            キャリア・働き方-リモートワーク (4)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E6%8E%A1%E7%94%A8%E4%BC%81%E6%A5%AD%E5%90%91%E3%81%91">
+            採用企業向け (31)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E6%8E%A1%E7%94%A8%E4%BC%81%E6%A5%AD%E5%90%91%E3%81%91-IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E6%8E%A1%E7%94%A8">
+            採用企業向け-ITエンジニアの採用 (31)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E8%BB%A2%E8%81%B7%E3%83%BB%E5%B0%B1%E8%81%B7">
+            転職・就職 (293)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E8%BB%A2%E8%81%B7%E3%83%BB%E5%B0%B1%E8%81%B7-IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E8%BB%A2%E8%81%B7">
+            転職・就職-ITエンジニアの転職 (164)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E8%BB%A2%E8%81%B7%E3%83%BB%E5%B0%B1%E8%81%B7-%E6%96%B0%E5%8D%92%2F%E5%B0%B1%E6%B4%BB">
+            転職・就職-新卒/就活 (134)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E8%BB%A2%E8%81%B7%E3%83%BB%E5%B0%B1%E8%81%B7-%E9%9D%A2%E6%8E%A5%E5%AF%BE%E7%AD%96">
+            転職・就職-面接対策 (65)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E8%BB%A2%E8%81%B7%E3%83%BB%E5%B0%B1%E8%81%B7-%E5%86%85%E5%AE%9A%E8%80%85%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%93%E3%83%A5%E3%83%BC">
+            転職・就職-内定者インタビュー (16)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E8%BB%A2%E8%81%B7%E3%83%BB%E5%B0%B1%E8%81%B7-%E8%BB%A2%E8%81%B7%E8%80%85%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%93%E3%83%A5%E3%83%BC">
+            転職・就職-転職者インタビュー (18)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/paiza">
+            paiza (165)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/paiza-%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E5%91%8A%E7%9F%A5%2F%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88">
+            paiza-イベント告知/レポート (133)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/paiza-%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%8F%E3%83%83%E3%82%AB%E3%82%BD%E3%83%B3">
+            paiza-オンラインハッカソン (34)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/paiza-PaizaCloud">
+            paiza-PaizaCloud (26)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%81%9D%E3%81%AE%E4%BB%96">
+            その他 (67)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%81%9D%E3%81%AE%E4%BB%96-%E3%83%8D%E3%82%BF">
+            その他-ネタ (51)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%81%9D%E3%81%AE%E4%BB%96-%E9%80%A3%E8%BC%89%EF%BC%9A%E3%81%99%E3%81%B9%E3%81%A6%E3%81%86%E3%81%BE%E3%81%8F%E3%81%84%E3%81%8F">
+            その他-連載：すべてうまくいく (10)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E3%81%9D%E3%81%AE%E4%BB%96-%E3%82%A2%E3%83%8B%E3%83%A1%2F%E6%BC%AB%E7%94%BB">
+            その他-アニメ/漫画 (10)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E7%92%B0%E5%A2%83">
+            開発ネタ-環境 (25)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88">
+            開発ネタ-マネジメント (2)
+          </a>
+        </li>
+      
+        <li>
+          <a href="https://paiza.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA%E3%83%8D%E3%82%BF-%E3%82%B9%E3%83%88%E3%83%A9%E3%83%86%E3%82%B8">
+            開発ネタ-ストラテジ (1)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+    
+      
+<div class="hatena-module hatena-module-html">
+  <div class="hatena-module-body">
+    <a href="http://hatenablog.com/" target="_blank"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20180426/20180426194403.png" width="180" height="72"></a>
+  </div>
+</div>
+
+    
+    
+  </div>
+</aside>
+
+
+  </div>
+</div>
+
+
+
+
+        
+
+        
+  <div id="bottom-editarea">
+    <div style="margin-left:130px;width:560px;">
+<!--
+<a href="http://www.gi-no.jp/company/recruit/" onclick="ga('send','pageview', {'page' : '/v_gino_recruit_ft'});"><img src="https://f.st-hatena.com/images/fotolife/p/paiza/20150727/20150727171159.jpg" width=560 height=120></a>
+-->
+<!--
+<a href="http://ptix.co/2sNeZAY" onclick="ga('send','pageview', {'page' : '/v_footer_peatix170708'});"><img src="https://cdn-ak2.f.st-hatena.com/images/fotolife/p/paiza/20170622/20170622132225.jpg" width=560 height=163></a><br/>
+-->
+<!--
+<a href="https://paiza.jp/logic_summoner" onclick="ga('send','pageview', {'page' : '/v_footer_logic'});"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20170516/20170516104208.png" width=560 height=163></a><br/>
+-->
+<!--
+<a href="https://paiza.jp/botchi" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_botchi'});"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190122/20190122112100.png" width=560 height=163></a><br/><br/>
+-->
+<!--
+<a href="https://paiza.jp/cgc" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_cgchard'});"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20181022/20181022122138.png" width=560 height=163></a><br/><br/>
+-->
+<a href="https://paiza.jp/works/lp/hacker" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_hacker'});"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20190730/20190730102129.png" width=560 height=163></a><br/><br/>
+<a href="https://paiza.jp/works/ai_ml_lp" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_ai'});"><img src="https://cdn-ak.f.st-hatena.com/images/fotolife/p/paiza/20181022/20181022123509.png" width=560 height=163></a><br/><br/>
+
+
+
+
+※このブログで紹介しているキャンペーンやイベント、およびサイト内の情報については、すべて記事公開時の情報となります。閲覧されたタイミングによっては状況が変わっている場合もございますのでご了承ください。<br><br>
+<a href="https://paiza.jp/" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_top'});"><img style="margin:30px 0 10px 0;" src="https://cdn-ak2.f.st-hatena.com/images/fotolife/p/paiza/20171101/20171101200755.png" alt="ITプログラマー・エンジニア転職・就活・学習のpaiza"></a>
+<h4 style="margin:20px 0 10px 0;"><a href="https://paiza.jp/works" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">プログラミング入門講座｜paizaラーニング </a></h4>
+<a href="https://paiza.jp/works/php/primerfemale" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">PHP入門編</a>｜
+<a href="https://paiza.jp/works/ruby/primerfemale" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">Ruby入門編</a>｜
+<a href="https://paiza.jp/works/python3/primer" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">Python入門編</a>｜
+<a href="https://paiza.jp/works/java/primer" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">Java入門編</a>｜
+<a href="https://paiza.jp/works/js/primer" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">JavaScript入門編</a>｜
+<a href="https://paiza.jp/works/c/primer" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">C言語入門編</a>｜
+<a href="https://paiza.jp/works/cs/primer" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">C#入門編</a>｜
+<a href="https://paiza.jp/works/algorithm/primer" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">アルゴリズム入門編</a>｜
+<a href="https://paiza.jp/works/ai_ml/primer/m1-challenge1" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_works'});">AI機械学習入門</a>
+
+<h4 style="margin:30px 0 10px 0;"><a href="https://paiza.jp/career" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_career'});">エンジニアのためのプログラミング転職サイト｜paiza転職 </a></h4>
+<a href="https://paiza.jp/challenges/info" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_career'});">プログラミング スキルチェック</a>｜
+<a href="https://paiza.jp/career/job_offers" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_career'});">エンジニア求人一覧</a>
+
+<h4 style="margin:30px 0 10px 0;"><a href="https://paiza.jp/en_try" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_entry'});">未経験からエンジニアを目指す人の転職サイト｜EN:TRY </a></h4>
+<a href="https://paiza.jp/challenges/info" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_entry'});">プログラミング スキルチェック</a>｜
+<a href="https://paiza.jp/en_try/job_offers" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_entry'});">エンジニア未経験可求人一覧</a>
+
+<h4 style="margin:30px 0 10px 0;"><a href="https://paiza.jp/student" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_entry'});">エンジニアを目指す学生の就活サイト｜paiza新卒 </a></h4>
+<a href="https://paiza.jp/challenges/info" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_entry'});">プログラミング スキルチェック</a>｜
+<a href="https://paiza.jp/student/job_offers" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_entry'});">エンジニア求人一覧</a>
+
+<h4 style="margin:30px 0 10px 0;"><a href="https://paiza.cloud" target="_blank" onclick="ga('send','pageview', {'page' : '/v_footer_paizacloud'});">ブラウザを開くだけで
+エディタ、Webサーバ、DB等の開発環境が整う｜PaizaCloud </a></h4>
+
+</div>
+
+<!-- パンくずコード -->
+<script src="https://www.google.com/jsapi"></script>
+<script src="https://bulldra.github.io/commons.js" charset="utf-8"></script>
+<script src="https://bulldra.github.io/breadcrumb.js" charset="utf-8"></script>
+<script type="text/javascript">
+google.set0nloadCallbach(categryHierarchyModule);</script> 
+
+<!-- リマーケティング タグの Google コード -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 988218628;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doublecli
+ck.net/pagead/viewthroughconversion/988218628/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+<!-- カテゴリ階層化のコード -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://hatena.wackwack.net/v1.1/js/breadcrumb.min.js"></script>
+<script src="https://hatena.wackwack.net/v1.1/js/category_archive.min.js"></script>
+  </div>
+
+
+      </div>
+    </div>
+    
+
+    
+
+    
+  <script src="https://s.hatena.ne.jp/js/HatenaStar.js?20191001"></script>
+
+
+    
+      <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=719729204785177&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    
+    
+
+<div class="quote-box">
+  <div class="tooltip-quote tooltip-quote-star">
+    <i class="blogicon-star" title="引用スターをつける"></i>
+  </div>
+  <div class="tooltip-quote tooltip-quote-stock">
+    <i class="blogicon-quote" title="引用をストック"></i>
+  </div>
+  <div class="tooltip-quote tooltip-quote-tweet js-tooltip-quote-tweet">
+    <a class="js-tweet-quote" target="_blank" data-track-name="quote-tweet" data-track-once><i class="blogicon-twitter" title="引用してツイートする"></i></a>
+  </div>
+</div>
+
+<div class="message-box" id="quote-star-message-box" style="display: none; position: absolute;">
+  スターをつけました
+</div>
+
+<div class="quote-stock-panel" id="quote-stock-message-box" style="position: absolute; z-index: 3000">
+  <div class="message-box" id="quote-stock-succeeded-message" style="display: none">
+    <p>引用をストックしました</p>
+    <button class="btn btn-primary" id="quote-stock-show-editor-button" data-track-name="curation-quote-edit-button">ストック一覧を見る</button>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="message-box" id="quote-login-required-message" style="display: none">
+    <p>引用するにはまずログインしてください</p>
+    <button class="btn btn-primary" id="quote-login-button">ログイン</button>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="error-box" id="quote-stock-failed-message" style="display: none">
+    <p>引用をストックできませんでした。再度お試しください</p>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="error-box" id="unstockable-quote-message-box" style="display: none; position: absolute; z-index: 3000;">
+    <p>限定公開記事のため引用できません。</p>
+  </div>
+</div>
+
+<script type="x-underscore-template" id="js-requote-button-template">
+  <div class="requote-button js-requote-button">
+    <button class="requote-button-btn tipsy-top" title="引用する"><i class="blogicon-quote"></i></button>
+  </div>
+</script>
+
+
+
+    
+    <div id="hidden-subscribe-button" style="display: none;">
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box"
+  
+  >
+
+  <a href="#" class="hatena-follow-button js-hatena-follow-button">
+    <span class="subscribing">
+      <span class="foreground">読者です</span>
+      <span class="background">読者をやめる</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once>
+      <span class="foreground">読者になる</span>
+      <span class="background">読者になる</span>
+    </span>
+  </a>
+  <div class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">
+    </span>
+  </div>
+</div>
+
+    </div>
+
+    
+  <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+
+<script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+
+
+  <script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/react-with-addons.min.js?version=15.4.1"></script>
+  <script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/react-dom.min.js?version=15.4.1"></script>
+
+
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/jquery.min.js?version=1.12.3"></script>
+<script type="text/javascript" src="https://cdn7.www.st-hatena.com/js/jquery/jquery-ui.1.10.0.custom.min.js"></script>
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/jquery.flot.js?version=0.8.3"></script>
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/jquery.flot.time.js?version=0.8.3"></script>
+
+
+
+
+
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/texts-ja.js?version=9d4bf97d0ec036169eb3adff0e0b7e954d7db05b&amp;env=production"></script>
+<script id="hatenablog-js" data-env="production"
+  type="text/javascript" src="https://cdn.blog.st-hatena.com/js/hatenablog.js?version=aafcc3a55799fe9b24f15e9df67c7e47cb105ab7&amp;env=production" crossorigin="anonymous"></script>
+
+
+  <script type="text/javascript">Hatena.Diary.GlobalHeader.init()</script>
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+  </body>
+</html>
+
