@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html
+  lang="ja"
+
+data-admin-domain="//blog.hatena.ne.jp"
+data-author="hidehara"
+data-avail-langs="ja en"
+data-blog="hideharaaws.hatenablog.com"
+data-blog-host="hideharaaws.hatenablog.com"
+data-blog-is-public="1"
+data-blog-name="AWS / PHP / Python ちょいメモ"
+data-blog-owner="hidehara"
+data-blog-uri="http://hideharaaws.hatenablog.com/"
+data-blog-uuid="11696248318756226147"
+data-blogs-uri-base="http://hideharaaws.hatenablog.com"
+data-brand="hatenablog"
+data-data-layer="{&quot;hatenablog&quot;:{&quot;brand&quot;:&quot;hatenablog&quot;,&quot;page_id&quot;:&quot;entry&quot;,&quot;pro&quot;:&quot;free&quot;,&quot;analytics&quot;:{&quot;brand_property_id&quot;:&quot;&quot;,&quot;non_sampling_property_id&quot;:&quot;&quot;,&quot;property_id&quot;:&quot;UA-42811780-1&quot;,&quot;separated_property_id&quot;:&quot;UA-29716941-23&quot;},&quot;admin&quot;:{},&quot;permalink_entry&quot;:{&quot;hour&quot;:&quot;17&quot;,&quot;categories&quot;:&quot;CentOS\tRedHat\tpython\tTIPS&quot;,&quot;date&quot;:&quot;2016-05-06&quot;,&quot;title&quot;:&quot;Beautiful Soup 4.x \u3067\u306f parser \u3092\u660e\u793a\u6307\u5b9a\u3057\u3088\u3046&quot;,&quot;uri&quot;:&quot;http://hideharaaws.hatenablog.com/entry/2016/05/06/175056&quot;,&quot;author_name&quot;:&quot;hidehara&quot;},&quot;blog&quot;:{&quot;is_responsive_view&quot;:&quot;false&quot;,&quot;uri&quot;:&quot;http://hideharaaws.hatenablog.com/&quot;,&quot;name&quot;:&quot;AWS / PHP / Python \u3061\u3087\u3044\u30e1\u30e2&quot;,&quot;enable_keyword_link&quot;:&quot;true&quot;,&quot;force_pc_view&quot;:&quot;false&quot;,&quot;is_sleeping&quot;:&quot;false&quot;,&quot;is_public&quot;:&quot;true&quot;,&quot;entry_show_footer_related_entries&quot;:&quot;true&quot;,&quot;enable_ads&quot;:&quot;true&quot;,&quot;disable_ads&quot;:&quot;&quot;,&quot;content_seems_japanese&quot;:&quot;true&quot;,&quot;owner_name&quot;:&quot;hidehara&quot;,&quot;lang&quot;:&quot;ja&quot;},&quot;brand_tracking_category&quot;:&quot;hatenablog&quot;,&quot;router_type&quot;:&quot;blogs&quot;}}"
+data-device="pc"
+data-dont-recommend-pro="false"
+data-global-domain="https://hatenablog.com"
+data-globalheader-color="b"
+data-globalheader-type="pc"
+data-has-touch-view="1"
+data-page="entry"
+data-parts-domain="https://hatenablog-parts.com"
+data-plus-available=""
+data-pro="false"
+data-router-type="blogs"
+data-sentry-dsn="https://03a33e4781a24cf2885099fed222b56d@sentry.io/1195218"
+data-sentry-environment="production"
+data-sentry-sample-rate="0.1"
+data-static-domain="https://cdn.blog.st-hatena.com"
+data-version="c0b5310d5635c3a7555dbabea9048c83"
+
+itemscope
+itemtype="http://schema.org/Article"
+
+  data-initial-state="{}"
+
+  >
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+  
+
+  
+
+
+
+  
+
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=7; IE=9; IE=10; IE=11" />
+  <title>Beautiful Soup 4.x では parser を明示指定しよう - AWS / PHP / Python ちょいメモ</title>
+
+  
+  <link rel="canonical" href="http://hideharaaws.hatenablog.com/entry/2016/05/06/175056"/>
+
+
+
+  
+  
+
+<meta itemprop="name" content="Beautiful Soup 4.x では parser を明示指定しよう - AWS / PHP / Python ちょいメモ"/>
+
+  <meta itemprop="image" content="https://cdn.blog.st-hatena.com/images/theme/og-image-1500.png"/>
+
+
+  <meta property="og:title" content="Beautiful Soup 4.x では parser を明示指定しよう - AWS / PHP / Python ちょいメモ"/>
+<meta property="og:type" content="article"/>
+  <meta property="og:url" content="http://hideharaaws.hatenablog.com/entry/2016/05/06/175056"/>
+
+  <meta property="og:image" content="https://ogimage.blog.st-hatena.com/11696248318756226147/6653812171394663483/1462524656"/>
+
+<meta property="og:image:alt" content="Beautiful Soup 4.x では parser を明示指定しよう - AWS / PHP / Python ちょいメモ"/>
+    <meta property="og:description" content="python で スクレイピングなどを行うときに便利なのが BeautifulSoup （ここでは bs4 を扱っています） 。 parserを選択できる仕様になっていますが、 4.3.xまでは明示的に指定しなくても、適度に動いていました （どう動いてたかは、調べてない）。 こちらにあるように、lxmlやhtml5libがインストールされている場合はそちらが優先されるそうです。 PythonとBeautiful Soupでスクレイピング - Qiita 4.4.x からは明示的に指定しないと、自動選択されるとともにWARNING がでて、何を使って動いてのかを教えてくれます。lxml が自動で…" />
+<meta property="og:site_name" content="AWS / PHP / Python ちょいメモ"/>
+
+  <meta property="article:published_time" content="1462524656" />
+
+    <meta property="article:tag" content="CentOS" />
+    <meta property="article:tag" content="RedHat" />
+    <meta property="article:tag" content="python" />
+    <meta property="article:tag" content="TIPS" />
+      <meta name="twitter:card"  content="summary_large_image" />
+    <meta name="twitter:image" content="https://ogimage.blog.st-hatena.com/11696248318756226147/6653812171394663483/1462524656" />  <meta name="twitter:title" content="Beautiful Soup 4.x では parser を明示指定しよう - AWS / PHP / Python ちょいメモ" />    <meta name="twitter:description" content="python で スクレイピングなどを行うときに便利なのが BeautifulSoup （ここでは bs4 を扱っています） 。 parserを選択できる仕様になっていますが、 4.3.xまでは明示的に指定しなくても、適度に動いていました （どう動いてたかは、調べてない）。 こちらにあるように、lxmlやhtml5li…" />  <meta name="twitter:app:name:iphone" content="はてなブログアプリ" />
+  <meta name="twitter:app:id:iphone" content="583299321" />
+  <meta name="twitter:app:url:iphone" content="hatenablog:///open?uri=http%3A%2F%2Fhideharaaws.hatenablog.com%2Fentry%2F2016%2F05%2F06%2F175056" />
+  
+    <meta name="description" content="python で スクレイピングなどを行うときに便利なのが BeautifulSoup （ここでは bs4 を扱っています） 。 parserを選択できる仕様になっていますが、 4.3.xまでは明示的に指定しなくても、適度に動いていました （どう動いてたかは、調べてない）。 こちらにあるように、lxmlやhtml5libがインストールされている場合はそちらが優先されるそうです。 PythonとBeautiful Soupでスクレイピング - Qiita 4.4.x からは明示的に指定しないと、自動選択されるとともにWARNING がでて、何を使って動いてのかを教えてくれます。lxml が自動で…" />
+    <meta name="keywords" content="AWS, Amazon Web Service, Cloud, AWS SDK for PHP" />
+
+
+  
+<script
+  id="embed-gtm-data-layer-loader"
+  data-data-layer-page-specific="{&quot;hatenablog&quot;:{&quot;blogs_permalink&quot;:{&quot;blog_afc_issued&quot;:&quot;false&quot;,&quot;blog_hide_afc_field&quot;:&quot;false&quot;,&quot;brand_hide_afc&quot;:&quot;false&quot;,&quot;blog_hide_afc_func&quot;:&quot;false&quot;,&quot;has_related_entries_with_elasticsearch&quot;:&quot;true&quot;,&quot;entry_afc_issued&quot;:&quot;false&quot;,&quot;is_blog_sleeping&quot;:&quot;false&quot;,&quot;is_author_pro&quot;:&quot;false&quot;,&quot;blog_struct_hide_afc&quot;:&quot;false&quot;}}}"
+>
+(function() {
+  function loadDataLayer(elem, attrName) {
+    if (!elem) { return {}; }
+    var json = elem.getAttribute(attrName);
+    if (!json) { return {}; }
+    return JSON.parse(json);
+  }
+
+  var globalVariables = loadDataLayer(
+    document.documentElement,
+    'data-data-layer'
+  );
+  var pageSpecificVariables = loadDataLayer(
+    document.getElementById('embed-gtm-data-layer-loader'),
+    'data-data-layer-page-specific'
+  );
+
+  var variables = [globalVariables, pageSpecificVariables];
+
+  if (!window.dataLayer) {
+    window.dataLayer = [];
+  }
+
+  for (var i = 0; i < variables.length; i++) {
+    window.dataLayer.push(variables[i]);
+  }
+})();
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P4CXTW');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+  <link rel="shortcut icon" href="http://hideharaaws.hatenablog.com/favicon">
+<link rel="apple-touch-icon" href="https://cdn.blog.st-hatena.com/images/touch-icon-iphone-retina.png">
+<link rel="icon" sizes="192x192" href="https://cdn.blog.st-hatena.com/images/common/meta-icon-global.png">
+
+  
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://hideharaaws.hatenablog.com/feed"/>
+<link rel="alternate" type="application/rss+xml" title="RSS2.0" href="http://hideharaaws.hatenablog.com/rss"/>
+<link rel="alternate" type="application/json+oembed" href="https://hatenablog.com/oembed?url=http%3A%2F%2Fhideharaaws.hatenablog.com%2Fentry%2F2016%2F05%2F06%2F175056&amp;format=json" title="oEmbed Profile of Beautiful Soup 4.x では parser を明示指定しよう"/>
+<link rel="alternate" type="text/xml+oembed" href="https://hatenablog.com/oembed?url=http%3A%2F%2Fhideharaaws.hatenablog.com%2Fentry%2F2016%2F05%2F06%2F175056&amp;format=xml" title="oEmbed Profile of Beautiful Soup 4.x では parser を明示指定しよう"/>
+  
+  <link rel="author" href="http://www.hatena.ne.jp/hidehara/">
+
+  
+
+
+  
+    <link rel="stylesheet" type="text/css" href="https://cdn.blog.st-hatena.com/css/blog.css?version=2c17f42f85cf323a2a651c1e7c614fe5d45eb18d&amp;env=production"/>
+
+    
+  <link rel="stylesheet" type="text/css" href="https://blog.hatena.ne.jp/-/blog_style/11696248318756226147/77f84a6aa24cf3987b30ef9c97f8353201eec1e2"/>
+  
+
+  
+
+  
+<script> </script>
+
+  
+<style>
+  div#google_afc_user,
+  div.google-afc-user-container,
+  div.google_afc_image,
+  div.google_afc_blocklink {
+      display: block !important;
+  }
+</style>
+
+
+  
+    <script src="https://cdn.pool.st-hatena.com/valve/valve.js" async></script>
+<script id="test-valve-definition">
+  var valve = window.valve || [];
+
+  valve.push(function(v) {
+    v.config({
+      service: 'blog',
+      content: {
+        result: 'adtrust',
+        documentIds: ["blog:entry:6653812171394663483"]
+      }
+    });
+    v.defineDFPSlot({"slotId":"google_afc_user_container_0","unit":"/4374287/blog_user","lazy":"","sizes":[[300,250],[336,280],[468,60],"fluid"]});
+    v.sealDFPSlots();
+  });
+</script>
+
+  
+
+  
+</head>
+
+  <body class="page-entry category-CentOS category-RedHat category-python category-TIPS">
+    
+    <div id="header-container">
+     <div id="sp-suggest" style="display: none;"><a id="sp-suggest-link" href="#">スマートフォン用の表示で見る</a></div>
+    </div>
+
+    <div id="globalheader-container"
+  data-brand="hatenablog"
+  
+  
+  >
+  <iframe id="globalheader" height="37" frameborder="0" allowTransparency="true"></iframe>
+</div>
+
+
+    <div id="container">
+      <div id="container-inner">
+        <header id="blog-title" data-brand="hatenablog">
+  <div id="blog-title-inner" >
+    <div id="blog-title-content">
+      <h1 id="title"><a href="http://hideharaaws.hatenablog.com/">AWS / PHP / Python ちょいメモ</a></h1>
+      
+        <h2 id="blog-description">amazon web service , PHP, Python を使ったときのメモ。日本語でググってもわからなかった事を中心に。</h2>
+      
+    </div>
+  </div>
+</header>
+
+        
+
+        
+        
+
+
+
+
+<div id="content" class="hfeed"
+  
+  >
+  <div id="content-inner">
+    <div id="wrapper">
+      <div id="main">
+        <div id="main-inner">
+          
+
+
+          
+  
+  <!-- google_ad_section_start -->
+  <!-- rakuten_ad_target_begin -->
+  
+  
+  
+
+  
+
+  
+    
+      
+        <article class="entry hentry js-entry-article date-first autopagerize_page_element chars-800 words-100 mode-hatena entry-odd" id="entry-6653812171394663483" data-keyword-campaign="" data-uuid="6653812171394663483" data-publication-type="entry">
+  <div class="entry-inner">
+    <header class="entry-header">
+  
+    <div class="date entry-date first">
+    <a href="http://hideharaaws.hatenablog.com/archive/2016/05/06" rel="nofollow">
+      <time pubdate datetime="2016-05-06T08:50:56Z" title="2016-05-06T08:50:56Z">
+        <span class="date-year">2016</span><span class="hyphen">-</span><span class="date-month">05</span><span class="hyphen">-</span><span class="date-day">06</span>
+      </time>
+    </a>
+  </div>
+  <h1 class="entry-title">
+  <a href="http://hideharaaws.hatenablog.com/entry/2016/05/06/175056" class="entry-title-link bookmark">Beautiful Soup 4.x では parser を明示指定しよう</a>
+</h1>
+
+  
+  
+
+  <div class="entry-categories categories">
+    
+    <a href="http://hideharaaws.hatenablog.com/archive/category/CentOS" class="entry-category-link category-CentOS">CentOS</a>
+    
+    <a href="http://hideharaaws.hatenablog.com/archive/category/RedHat" class="entry-category-link category-RedHat">RedHat</a>
+    
+    <a href="http://hideharaaws.hatenablog.com/archive/category/python" class="entry-category-link category-python">python</a>
+    
+    <a href="http://hideharaaws.hatenablog.com/archive/category/TIPS" class="entry-category-link category-TIPS">TIPS</a>
+    
+  </div>
+
+
+  
+
+  
+
+</header>
+
+    
+
+    <div class="entry-content">
+  
+    <p><a class="keyword" href="http://d.hatena.ne.jp/keyword/python">python</a> で <a class="keyword" href="http://d.hatena.ne.jp/keyword/%A5%B9%A5%AF%A5%EC%A5%A4%A5%D4%A5%F3%A5%B0">スクレイピング</a>などを行うときに便利なのが BeautifulSoup （ここでは bs4 を扱っています） 。<br />
+parserを選択できる仕様になっていますが、 4.3.xまでは明示的に指定しなくても、適度に動いていました （どう動いてたかは、調べてない）。 </p><p>こちらにあるように、lxmlやhtml5libがインストールされている場合はそちらが優先されるそうです。</p>
+
+<ul>
+<li><a href="http://qiita.com/itkr/items/513318a9b5b92bd56185">Python&#x3068;Beautiful Soup&#x3067;&#x30B9;&#x30AF;&#x30EC;&#x30A4;&#x30D4;&#x30F3;&#x30B0; - Qiita</a></li>
+</ul><p><br />
+4.4.x からは明示的に指定しないと、自動選択されるとともにWARNING がでて、何を使って動いてのかを教えてくれます。</p><p>lxml が自動で選ばれた例）</p>
+
+    <blockquote>
+        <p>soup = BeautifulSoup(html)<br />
+..python2.7/site-packages/bs4/__init__.py:166: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.</p>
+
+    </blockquote>
+<p><br />
+ただし、自動選択に依存してしまうと環境によって動作が変わってしまいます。そこで、各parserの特性を理解して、明示的に指定するのが吉ですね。と調べたメモです。</p>
+
+<ul>
+<li>BautifulSoup 4.4.1 ( by pip. 2016/5 現在の最新版 )</li>
+</ul>
+<div class="section">
+    <h4>パーサーを選ぶ</h4>
+    <p>HTMLに限定すると次の３つが対応しています。</p>
+
+<table>
+    <tr>
+    <th> パーサー</th>
+    <th> アドバンテージ</th>
+    <th> ディスアドバンテージ</th>
+    </tr>
+    <tr>
+    <td>html.parser</td>
+    <td><a class="keyword" href="http://d.hatena.ne.jp/keyword/Python">Python</a>標準で含まれている</td>
+    <td>寛大ではない</td>
+    </tr>
+    <tr>
+    <td>lxml</td>
+    <td>高速動作する</td>
+    <td>外部のCライブラリ依存 (pip導入時には、libxslt, libxml2などのCライブラリが必要)</td>
+    </tr>
+    <tr>
+    <td>html5lib</td>
+    <td>寛大な動作をする（文法間違いの修正度合い）。 Webブラウザと同じ手法でパース。有効な<a class="keyword" href="http://d.hatena.ne.jp/keyword/HTML5">HTML5</a>を作る。</td>
+    <td>とても動作が遅い。外部の<a class="keyword" href="http://d.hatena.ne.jp/keyword/Python">Python</a>ライブラリ依存がある</td>
+    </tr>
+</table><p><br />
+パースしたいページで試したところ、lxml OR html5lib なれば正常に動作していました。lxmlがいいなと思ったのですが、libxslt が古く "/usr/bin/ld: skipping incompatible"  (CentOS6)  と言われたので、pip で導入できる html5lib を使うことにしました。簡単に動作比較したところlxmlの方が10倍以上早かったので、Cライブラリのハードルがなければ、そっちが良かったかも（あまり厳密な<a class="keyword" href="http://d.hatena.ne.jp/keyword/HTML5">HTML5</a>コーディングも不要だし）。</p>
+<pre class="code lang-python" data-lang="python" data-unlink>soup = BeautifulSoup(html, <span class="synConstant">'html5lib'</span>)
+</pre><p>※なお html5lib自体は正常にインストールされていれば import する必要ないです。</p><br />
+<p>parser別の特徴の比較。</p>
+
+<ul>
+<li><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser">Installing a parser</a></li>
+</ul><p><br />
+parser別の動作比較。どれがいいとは言えないが、ポリシーの違いが明確にでる例をあげてくれています。</p>
+
+<ul>
+<li><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#differences-between-parsers">Differences between parsers</a></li>
+</ul><p>選択に迷った時は、diagnose() で検証も出来るようになっています。</p>
+
+<ul>
+<li><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#diagnose">diagnose()</a></li>
+</ul><p><br />
+最終的には、用途やリソース次第ですね。<br />
+<br />
+</p>
+
+</div>
+<div class="section">
+    <h4>その他</h4>
+    <p>以前動いてたという理由で、ワーニングとかを無視して進めるのは良くないなぁと気づきました。はい。</p><p>今回は、開発を手伝ってもらう際、新しい環境構築を行うことになり気づけました。</p><p>急ぎ、README と コード直して、明示的に指定せねば。。。</p>
+
+</div>
+    
+
+  
+</div>
+
+    
+  <footer class="entry-footer">
+    
+    <p class="entry-footer-section">
+  <span class="author vcard"><span class="fn" data-load-nickname="1" data-user-name="hidehara">hidehara</span></span>
+  <span class="entry-footer-time"><a href="http://hideharaaws.hatenablog.com/entry/2016/05/06/175056"><time data-relative datetime="2016-05-06T08:50:56Z" title="2016-05-06T08:50:56Z" pubdate class="updated">2016-05-06 17:50</time></a></span>
+</p>
+
+    
+  <div class="hatena-star-container">
+  </div>
+  <div class="hatena-star-metadata" style="display: none">
+    <a class="hatena-star-permalink" href="http://hideharaaws.hatenablog.com/entry/2016/05/06/175056">Beautiful Soup 4.x では parser を明示指定しよう</a>
+  </div>
+
+
+    
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      <a href="https://b.hatena.ne.jp/entry/http://hideharaaws.hatenablog.com/entry/2016/05/06/175056" class="hatena-bookmark-button" data-hatena-bookmark-url="http://hideharaaws.hatenablog.com/entry/2016/05/06/175056" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="ja" title="この記事をはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only.gif" alt="この記事をはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button" data-layout="box_count" data-href="http://hideharaaws.hatenablog.com/entry/2016/05/06/175056"></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://hideharaaws.hatenablog.com/entry/2016/05/06/175056" data-count="vertical" data-text="Beautiful Soup 4.x では parser を明示指定しよう - AWS / PHP / Python ちょいメモ" data-lang="ja">Tweet</a>
+    </div>
+  
+  
+  
+  
+</div>
+
+    
+  
+  
+    
+    <div class="google-afc-image test-google-rectangle-ads">      
+      
+      <div id="google_afc_user_container_0" class="google-afc-user-container google_afc_blocklink2_5 google_afc_boder" data-test-unit="/4374287/blog_user"></div>
+      
+        <a href="http://blog.hatena.ne.jp/guide/pro" class="open-pro-modal" data-guide-pro-modal-ad-url="https://hatenablog.com/guide/pro/modal/ad">広告を非表示にする</a>
+      
+    </div>
+  
+  
+
+
+    <div class="customized-footer">
+      
+
+        
+
+        
+
+          <div class="entry-footer-modules" id="entry-footer-secondary-modules">      
+<div class="hatena-module hatena-module-related-entries" >
+      
+  <!-- Hatena-Epic-has-related-entries-with-elasticsearch:true -->
+  <div class="hatena-module-title">
+    関連記事
+  </div>
+  <div class="hatena-module-body">
+    <ul class="related-entries hatena-urllist urllist-with-thumbnails">
+  
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <div class="urllist-date-link related-entries-date-link">
+  <a href="http://hideharaaws.hatenablog.com/archive/2016/10/03" rel="nofollow">
+    <time pubdate datetime="2016-10-03T08:45:45Z" title="2016-10-03T08:45:45Z">
+      2016-10-03
+    </time>
+  </a>
+</div>
+
+          <a href="http://hideharaaws.hatenablog.com/entry/2016/10/03/174545" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">&quot;/usr/bin/ld: cannot find -lxslt&quot; が出て pip で lxml が…</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">長年の問題が解決した。。。（発覚してから１年ほどで、解決に…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <div class="urllist-date-link related-entries-date-link">
+  <a href="http://hideharaaws.hatenablog.com/archive/2016/04/14" rel="nofollow">
+    <time pubdate datetime="2016-04-14T00:46:41Z" title="2016-04-14T00:46:41Z">
+      2016-04-14
+    </time>
+  </a>
+</div>
+
+          <a href="http://hideharaaws.hatenablog.com/entry/2016/04/14/094641" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">homebrew direnv には homebrew python が必要？</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">（4/27 追記） homebew版 python が必要ではなく、direnv で使…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <div class="urllist-date-link related-entries-date-link">
+  <a href="http://hideharaaws.hatenablog.com/archive/2015/12/10" rel="nofollow">
+    <time pubdate datetime="2015-12-09T15:00:00Z" title="2015-12-09T15:00:00Z">
+      2015-12-10
+    </time>
+  </a>
+</div>
+
+          <a href="http://hideharaaws.hatenablog.com/entry/django-upgrade-16to18" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">Django アップグレード手順まとめ 1.6.x to 1.8.x</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">この記事は、Python その2 Advent Calendar 2015 の10日目の記…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <div class="urllist-date-link related-entries-date-link">
+  <a href="http://hideharaaws.hatenablog.com/archive/2015/10/22" rel="nofollow">
+    <time pubdate datetime="2015-10-22T10:13:42Z" title="2015-10-22T10:13:42Z">
+      2015-10-22
+    </time>
+  </a>
+</div>
+
+          <a href="http://hideharaaws.hatenablog.com/entry/2015/10/22/191342" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">dateutil で 曖昧な日付をパースする </a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">python の dateutil ライブラリ。標準の datetime.strptime で…</div>
+      </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+                      <div class="urllist-date-link related-entries-date-link">
+  <a href="http://hideharaaws.hatenablog.com/archive/2015/10/06" rel="nofollow">
+    <time pubdate datetime="2015-10-06T04:18:48Z" title="2015-10-06T04:18:48Z">
+      2015-10-06
+    </time>
+  </a>
+</div>
+
+          <a href="http://hideharaaws.hatenablog.com/entry/2015/10/06/131848" class="urllist-title-link related-entries-title-link  urllist-title related-entries-title">self と cls とかが何か気になって調べてみた + @staticmethod</a>
+
+
+          
+          
+
+                      <div class="urllist-entry-body related-entries-entry-body">python 書いてると”ふと”気になる self と cls を調べメモ。な…</div>
+      </div>
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+  </div>
+        
+
+      
+    </div>
+    
+  <div class="comment-box">
+    
+    <ul class="comment">
+      <li class="read-more-comments" style="display: none;"><a>もっと読む</a></li>
+    </ul>
+    
+      <a class="leave-comment-title">コメントを書く</a>
+    
+  </div>
+
+  </footer>
+
+  </div>
+</article>
+
+      
+      
+    
+  
+
+  
+  <!-- rakuten_ad_target_end -->
+  <!-- google_ad_section_end -->
+  
+  
+  
+  <div class="pager pager-permalink permalink">
+    
+      
+      <span class="pager-prev">
+        <a href="http://hideharaaws.hatenablog.com/entry/2016/09/09/143957" rel="prev">
+          <span class="pager-arrow">&laquo; </span>
+          管理時に欲しくなる yum オプションをまと…
+        </a>
+      </span>
+    
+    
+      
+      <span class="pager-next">
+        <a href="http://hideharaaws.hatenablog.com/entry/2016/04/27/090410" rel="next">
+          Mac に pythonz 入れる前にやっておくこと
+          <span class="pager-arrow"> &raquo;</span>
+        </a>
+      </span>
+    
+  </div>
+
+
+  
+
+
+
+        </div>
+      </div>
+
+      <aside id="box1">
+  <div id="box1-inner">
+  </div>
+</aside>
+
+    </div><!-- #wrapper -->
+
+    
+<aside id="box2">
+  
+  <div id="box2-inner">
+    
+      
+
+<div class="hatena-module hatena-module-category">
+  <div class="hatena-module-title">
+    カテゴリー
+  </div>
+  <div class="hatena-module-body">
+    <ul class="hatena-urllist">
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/TIPS">
+            TIPS (51)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/python">
+            python (34)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/Django">
+            Django (25)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/PHP">
+            PHP (20)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/Ubuntu">
+            Ubuntu (17)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/%E9%81%8B%E7%94%A8">
+            運用 (16)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/SDK">
+            SDK (15)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/CentOS">
+            CentOS (13)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/RedHat">
+            RedHat (10)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88">
+            ドキュメント (10)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/CakePHP2.x">
+            CakePHP2.x (10)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/%E3%82%A8%E3%83%A9%E3%83%BC">
+            エラー (8)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/Apache2.4">
+            Apache2.4 (6)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/sphinx">
+            sphinx (5)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/Mac">
+            Mac (5)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/%E9%96%8B%E7%99%BA">
+            開発 (4)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/mysql">
+            mysql (3)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/Git">
+            Git (3)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/EMR">
+            EMR (3)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/S3">
+            S3 (3)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/Win">
+            Win (2)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/SDB">
+            SDB (1)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/vim">
+            vim (1)
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://hideharaaws.hatenablog.com/archive/category/EC2">
+            EC2 (1)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+    
+      
+
+<div class="hatena-module hatena-module-profile">
+  <div class="hatena-module-title">
+    プロフィール
+  </div>
+  <div class="hatena-module-body">
+    
+    <a href="http://hideharaaws.hatenablog.com/about" class="profile-icon-link">
+      <img src="https://cdn.profile-image.st-hatena.com/users/hidehara/profile.png?1447721487"
+      alt="id:hidehara" class="profile-icon" />
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box"
+  
+  >
+
+  <a href="#" class="hatena-follow-button js-hatena-follow-button">
+    <span class="subscribing">
+      <span class="foreground">読者です</span>
+      <span class="background">読者をやめる</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once>
+      <span class="foreground">読者になる</span>
+      <span class="background">読者になる</span>
+    </span>
+  </a>
+  <div class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">
+    </span>
+  </div>
+</div>
+
+    
+
+    
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-recent-entries ">
+  <div class="hatena-module-title">
+    <a href="http://hideharaaws.hatenablog.com/archive">
+      最新記事
+    </a>
+  </div>
+  <div class="hatena-module-body">
+    <ul class="recent-entries hatena-urllist ">
+  
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://hideharaaws.hatenablog.com/entry/2019/11/23/111229" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">Django admin カスタマイズ</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://hideharaaws.hatenablog.com/entry/2019/09/19/200029" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">Firefox on CUI 今と昔</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://hideharaaws.hatenablog.com/entry/2019/08/25/233021" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">firefox on Ubuntu 14.04.6 が落ちる</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://hideharaaws.hatenablog.com/entry/2018/06/18/122725" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">Python が 参照する証明書ストアを掘ってみた (CentOS 版)</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+    
+    <li class="urllist-item recent-entries-item">
+      <div class="urllist-item-inner recent-entries-item-inner">
+        
+          
+          <a href="http://hideharaaws.hatenablog.com/entry/2018/06/18/110053" class="urllist-title-link recent-entries-title-link  urllist-title recent-entries-title">HTTPS調べるときに便利なOpenSSLの使い方 &lt;s_client編&gt;</a>
+
+
+          
+          
+
+                </div>
+    </li>
+  
+</ul>
+
+      </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-search-box">
+  <div class="hatena-module-title">
+    検索
+  </div>
+  <div class="hatena-module-body">
+    <form class="search-form" role="search" action="http://hideharaaws.hatenablog.com/search" method="get">
+  <input type="text" name="q" class="search-module-input" value="" placeholder="記事を検索" required>
+  <input type="submit" value="検索" class="search-module-button" />
+</form>
+
+  </div>
+</div>
+
+    
+      <div class="hatena-module hatena-module-links">
+  <div class="hatena-module-title">
+    リンク
+  </div>
+  <div class="hatena-module-body">
+    <ul class="hatena-urllist">
+      
+        <li>
+          <a href="http://aws.amazon.com/jp/">AWS (JP)</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+    
+      
+
+<div class="hatena-module hatena-module-archive" data-archive-type="default" data-archive-url="http://hideharaaws.hatenablog.com/archive">
+  <div class="hatena-module-title">
+    <a href="http://hideharaaws.hatenablog.com/archive">月別アーカイブ</a>
+  </div>
+  <div class="hatena-module-body">
+  </div>
+</div>
+
+    
+    
+  </div>
+</aside>
+
+
+  </div>
+</div>
+
+
+
+
+        
+
+        
+
+      </div>
+    </div>
+    
+<footer id="footer" data-brand="hatenablog">
+  <div id="footer-inner">
+    
+      <div style="display:none !important" class="guest-footer js-guide-register test-blogs-register-guide" data-action="guide-register">
+  <div class="guest-footer-content">
+    <h3>はてなブログをはじめよう！</h3>
+    <p>hideharaさんは、はてなブログを使っています。あなたもはてなブログをはじめてみませんか？</p>
+    <div class="guest-footer-btn-container">
+      <div  class="guest-footer-btn">
+        <a class="btn btn-register" href="http://blog.hatena.ne.jp/register?via=200227" target="_blank">はてなブログをはじめる（無料）</a>
+      </div>
+      <div  class="guest-footer-btn">
+        <a href="https://hatenablog.com/guide" target="_blank">はてなブログとは</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <address class="footer-address">
+      <a href="http://hideharaaws.hatenablog.com/">
+        <img src="https://cdn.blog.st-hatena.com/images/admin/blog-icon-noimage.png" width="16" height="16" alt="AWS / PHP / Python ちょいメモ"/>
+        <span class="footer-address-name">AWS / PHP / Python ちょいメモ</span>
+      </a>
+    </address>
+    <p class="services">
+      Powered by <a href="https://hatenablog.com/">Hatena Blog</a>
+      |
+        <a href="https://blog.hatena.ne.jp/-/abuse_report?target_url=http%3A%2F%2Fhideharaaws.hatenablog.com%2Fentry%2F2016%2F05%2F06%2F175056" class="report-abuse-link test-report-abuse-link" target="_blank">ブログを報告する</a>
+    </p>
+  </div>
+</footer>
+
+
+    
+
+    
+  <script src="https://s.hatena.ne.jp/js/HatenaStar.js?20191001"></script>
+
+
+    
+      <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=719729204785177&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+    
+    
+
+<div class="quote-box">
+  <div class="tooltip-quote tooltip-quote-star">
+    <i class="blogicon-star" title="引用スターをつける"></i>
+  </div>
+  <div class="tooltip-quote tooltip-quote-stock">
+    <i class="blogicon-quote" title="引用をストック"></i>
+  </div>
+  <div class="tooltip-quote tooltip-quote-tweet js-tooltip-quote-tweet">
+    <a class="js-tweet-quote" target="_blank" data-track-name="quote-tweet" data-track-once><i class="blogicon-twitter" title="引用してツイートする"></i></a>
+  </div>
+</div>
+
+<div class="message-box" id="quote-star-message-box" style="display: none; position: absolute;">
+  スターをつけました
+</div>
+
+<div class="quote-stock-panel" id="quote-stock-message-box" style="position: absolute; z-index: 3000">
+  <div class="message-box" id="quote-stock-succeeded-message" style="display: none">
+    <p>引用をストックしました</p>
+    <button class="btn btn-primary" id="quote-stock-show-editor-button" data-track-name="curation-quote-edit-button">ストック一覧を見る</button>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="message-box" id="quote-login-required-message" style="display: none">
+    <p>引用するにはまずログインしてください</p>
+    <button class="btn btn-primary" id="quote-login-button">ログイン</button>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="error-box" id="quote-stock-failed-message" style="display: none">
+    <p>引用をストックできませんでした。再度お試しください</p>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="error-box" id="unstockable-quote-message-box" style="display: none; position: absolute; z-index: 3000;">
+    <p>限定公開記事のため引用できません。</p>
+  </div>
+</div>
+
+<script type="x-underscore-template" id="js-requote-button-template">
+  <div class="requote-button js-requote-button">
+    <button class="requote-button-btn tipsy-top" title="引用する"><i class="blogicon-quote"></i></button>
+  </div>
+</script>
+
+
+
+    
+    <div id="hidden-subscribe-button" style="display: none;">
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box"
+  
+  >
+
+  <a href="#" class="hatena-follow-button js-hatena-follow-button">
+    <span class="subscribing">
+      <span class="foreground">読者です</span>
+      <span class="background">読者をやめる</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once>
+      <span class="foreground">読者になる</span>
+      <span class="background">読者になる</span>
+    </span>
+  </a>
+  <div class="subscription-count-box js-subscription-count-box">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">
+    </span>
+  </div>
+</div>
+
+    </div>
+
+    
+  <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+
+<script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+
+
+
+  <script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/react-with-addons.min.js?version=15.4.1"></script>
+  <script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/react-dom.min.js?version=15.4.1"></script>
+
+
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/jquery.min.js?version=1.12.3"></script>
+<script type="text/javascript" src="https://cdn7.www.st-hatena.com/js/jquery/jquery-ui.1.10.0.custom.min.js"></script>
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/jquery.flot.js?version=0.8.3"></script>
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/external/jquery.flot.time.js?version=0.8.3"></script>
+
+
+
+
+
+<script type="text/javascript" src="https://cdn.blog.st-hatena.com/js/texts-ja.js?version=9d4bf97d0ec036169eb3adff0e0b7e954d7db05b&amp;env=production"></script>
+<script id="hatenablog-js" data-env="production"
+  type="text/javascript" src="https://cdn.blog.st-hatena.com/js/hatenablog.js?version=340611b46483dd17882a1f855a3cbb0020f8815c&amp;env=production" crossorigin="anonymous"></script>
+
+
+  <script type="text/javascript">Hatena.Diary.GlobalHeader.init()</script>
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+
+
+
+    
+  <script id="valve-dmp" data-service="blog" src="https://cdn.pool.st-hatena.com/valve/dmp.js" data-test-id="dmpjs" async></script>
+
+
+    
+
+
+
+
+
+  </body>
+</html>
+
